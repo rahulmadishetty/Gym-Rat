@@ -1,0 +1,91 @@
+//media-query
+@mixin max-break-point($point) {
+    $mobile-phone: 576px;
+  
+    $tablet: 768px;
+  
+    $tablet-landscape: 991px;
+  
+    $large-desktop: 1200px;
+  
+    $larger-desktop: 1400px;
+  
+    @if $point == mobile-phone {
+      @media (max-width: #{$mobile-phone}) {
+        @content;
+      }
+    }
+  
+    @if $point == tablet {
+      @media (max-width: #{$tablet}) {
+        @content;
+      }
+    }
+  
+    @if $point == tablet-landscape {
+      @media (max-width:  #{$tablet-landscape}) {
+        @content;
+      }
+    }
+  
+    @if $point == large-desktop {
+      @media (max-width:#{$large-desktop}) {
+        @content;
+      }
+    }
+  
+    @if $point == larger-desktop {
+      @media (max-width:#{$larger-desktop}) {
+        @content;
+      }
+    }
+  }
+  
+  @mixin min-break-point($point) {
+    $mobile-phone: 576px;
+  
+    $tablet: 768px;
+  
+    $tablet-landscape: 991px;
+  
+    $large-desktop: 1200px;
+  
+    $larger-desktop: 1400px;
+  
+    @if $point == mobile-phone {
+      @media (min-width: #{$mobile-phone}) {
+        @content;
+      }
+    }
+  
+    @if $point == tablet {
+      @media (min-width: #{$tablet}) {
+        @content;
+      }
+    }
+  
+    @if $point == tablet-landscape {
+      @media (min-width:  #{$tablet-landscape}) {
+        @content;
+      }
+    }
+  
+    @if $point == large-desktop {
+      @media (min-width:#{$large-desktop}) {
+        @content;
+      }
+    }
+  
+    @if $point == larger-desktop {
+      @media (min-width:#{$larger-desktop}) {
+        @content;
+      }
+    }
+  }
+  
+  @mixin size($height, $width: $height) {
+    height: $height;
+    width: $width;
+  }
+  
+  
