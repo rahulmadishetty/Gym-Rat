@@ -15,6 +15,21 @@ exports.getUserProfile = async (req, res) => {
   }
 };
 
+
+// Create a new user
+exports.createUser = async (req, res) => {
+  const { name, email, password } = req.body;
+
+  try {
+    const newUser = new User({ name, email, password });
+    await newUser.save();
+    res.status(201).json(newUser);
+  } catch (error) {
+    res.status(500).json({ error: 'User creation failed' });
+  }
+};
+
+
 // Update user information
 exports.updateUser = async (req, res) => {
   const userId = req.params.userId;
