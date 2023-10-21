@@ -1,0 +1,33 @@
+.sign-up {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .inner-div {
+        flex: 1;
+
+        text-align: center;
+
+    }
+
+    .image-banner {
+        height: 80vh;
+        border-radius: 6em;
+    }
+
+    input {
+        border-radius: 8px;
+        border: 1px solid #95ADB6;
+    }
+
+    p {
+        color: gray;
+    }
+
+    button {
+        background: #69A2B0;
+        color: white;
+        border-radius: 8px;
+        padding: 0.6em 4em;
+    }
+}
