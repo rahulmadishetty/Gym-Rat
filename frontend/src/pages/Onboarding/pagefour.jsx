@@ -1,5 +1,5 @@
 import React from 'react'
-import tick from "./tick.jpg";
+import tick from "./tick.png";
 
 const PageFour = () => {
   return
