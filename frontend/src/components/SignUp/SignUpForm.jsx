@@ -1,42 +1,53 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Form } from 'react-final-form';
+import { SIGN_IN } from '../../constants/routes';
+import InputField from '../Input/InputField';
+import { composeValidators, required, validateConfirmPassword, validateEmail, validatePassword } from '../../utils/validations';
 
-import { SIGN_IN } from '../../constants/routes'
 
 const SignUpform = () => {
-
-  const [formData, setFormData] = useState({});
-
-  const handleOnChange = (e) => {
-    setFormData((prev) => {
-      return { ...prev, [e.target.name]: [e.target.value] }
-    })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log(formData)
-  }
+  const handleSubmit = (formData) => {
+    console.log(formData);
+  };
 
   return (
     <div>
       <h2 className='m-3'> Sign Up</h2>
       <p>Lets start your wonderful journey with fitness!</p>
-      <section>
-        <form className='d-flex flex-column align-items-center' onSubmit={handleSubmit}>
-          <input required name="name" type='text' placeholder='Name' className='m-3 p-2 col-lg-8 col-sm-10 offset-lg-3' onChange={handleOnChange} />
-          <input required name='email' type='email' placeholder='Email' className='m-3 p-2 col-lg-8 col-sm-10 offset-lg-2' onChange={handleOnChange} />
-          <input required name="password" type='password' placeholder='Password' className='m-3 p-2 col-lg-8 col-sm-10 offset-lg-4' onChange={handleOnChange} />
-          <input required name='password_confirmation' type='password' placeholder='Password Confirmation' className='m-3 p-2 col-lg-8 col-sm-10' onChange={handleOnChange} />
-          <button className='m-4' type='submit'> Sign Up</button>
-        </form>
-      </section>
+      <Form
+        onSubmit={handleSubmit}
+        render={({ handleSubmit, submitting, values }) => (
+          <form onSubmit={handleSubmit} className='d-flex flex-column align-items-center'>
+            <InputField name="name" label="Name" placeholder="Name" validate={required} type="text" />
+            <InputField name="email" label="Email" placeholder="Email" validate={composeValidators(required, validateEmail)} type="text" />
+            <InputField
+              name="password"
+              label="Password"
+              placeholder="Password"
+              validate={composeValidators(required, validatePassword)}
+              type="password"
+            />
+            <InputField
+              name="password_confirmation"
+              label="Password Confirmation"
+              placeholder="Password Confirmation"
+              validate={composeValidators(required, value => validateConfirmPassword(value, values))}
+              type="password"
+            />
+            <div className="buttons">
+              <button type="submit" disabled={submitting}>
+                Submit
+              </button>
+            </div>
+          </form>
+        )}
+      />
       <div className='m-3'>
         Already have an account? <Link to={SIGN_IN.INDEX}>  Login </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SignUpform
+export default SignUpform;

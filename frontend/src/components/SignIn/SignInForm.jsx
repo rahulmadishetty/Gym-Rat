@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Form } from 'react-final-form';
 
 import { SIGN_UP } from '../../constants/routes'
+import InputField from '../Input/InputField';
+import { composeValidators, required, validateEmail } from '../../utils/validations';
 
 const SignInform = () => {
   const [formData, setFormData] = useState({});
@@ -23,13 +26,26 @@ const SignInform = () => {
     <div>
       <h2 className='m-3'> Sign In</h2>
       <p>Lets start your wonderful journey with fitness!</p>
-      <section>
-        <form className='d-flex flex-column align-items-center' onSubmit={handleSubmit}>
-          <input required name='email' type='email' placeholder='Email' className='m-3 p-2 col-lg-8 col-sm-10 offset-lg-2' onChange={handleOnChange} />
-          <input required name="password" type='password' placeholder='Password' className='m-3 p-2 col-lg-8 col-sm-10 offset-lg-4' onChange={handleOnChange} />
-          <button className='m-4' type='submit'> Sign In</button>
-        </form>
-      </section>
+      <Form
+        onSubmit={handleSubmit}
+        render={({ handleSubmit, submitting }) => (
+          <form onSubmit={handleSubmit} className='d-flex flex-column align-items-center'>
+            <InputField name="email" label="Email" placeholder="Email" validate={composeValidators(required, validateEmail)} type="text" />
+            <InputField
+              name="password"
+              label="Password"
+              placeholder="Password"
+              validate={composeValidators(required)}
+              type="password"
+            />
+            <div className="buttons">
+              <button type="submit" disabled={submitting}>
+                Submit
+              </button>
+            </div>
+          </form>
+        )}
+      />
       <div className='m-3'>
         Don't have an account? <Link to={SIGN_UP.INDEX}> Sign up </Link>
       </div>
