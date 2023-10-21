@@ -5,7 +5,7 @@ import PageOne from './PageOne';
 import PageTwo from './PageTwo';
 import PageThree from './PageThree';
 import PageFour from './PageFour';
- 
+
 const MainOnboarding = () => {
 
   const [page, setPage] = useState("pageone");
@@ -33,20 +33,19 @@ const MainOnboarding = () => {
     }
   };
 
-  return
-  <>
+  return (<>
     <div className='App'>
-      <MultiStepProgressBar page={page} onPageNumberClick={nextPageNumber}/>
+      <MultiStepProgressBar page={page} onPageNumberClick={nextPageNumber} />
       {
         {
-          pageone: <PageOne onButtonClick={nextpage}/>,
-          pagetwo: <PageTwo onButtonClick={nextpage}/>,
-          pagethree: <PageThree onButtonClick={nextpage}/>,
-          pagefour: <PageFour onButtonClick={nextpage}/>
+          pageone: <PageOne onButtonClick={nextpage} />,
+          pagetwo: <PageTwo onButtonClick={nextpage} />,
+          pagethree: <PageThree onButtonClick={nextpage} />,
+          pagefour: <PageFour onButtonClick={nextpage} />
         }[page]
       }
     </div>
-  </>
+  </>)
 }
 
 export default MainOnboarding
