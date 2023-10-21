@@ -10,15 +10,18 @@ exports.signup = async (req, res) => {
     const { name, email, password } = req.body;
 
     const db = getDb()
-    console.log(db, 'hit')
+    // console.log(db, 'hit')
+   // Check if the user already exists
+   const userExists = await db.collection("user_signup").findOne({ email });
+   console.log(userExists)
+   if (userExists) {
+     return res.status(400).json({ error: 'User already exists' });
+   }else{
     await db.collection("user_signup").insertOne({name, email, password})
+   }  
 
-    // Check if the user already exists
-    // const userExists = await User.findOne({ email });
-    // if (userExists) {
-    //   return res.status(400).json({ error: 'User already exists' });
-    // }
-    
+   const user = await db.collection("user_signup").findOne({ email });
+
   
     // Hash the password
     // const hashedPassword = await bcrypt.hash(password, 10);
@@ -28,14 +31,14 @@ exports.signup = async (req, res) => {
 
     const key = process.env.MONGODB_SECRET_KEY;
     // Generate a JWT token for the user
-    // const token = jwt.sign({ userId: user._id }, 'key', { expiresIn: '1h' });
-    // console.log("after jwt line 31");
+    const token = jwt.sign({ userId: user._id }, key, { expiresIn: '1h' });
+    console.log(token);
+    console.log("point 35");
 
-    // const newUser = await User.findOne({ email });
-
-    res.status(201).json({ msg: "Added new user" });
+    res.status(201).json({ token, userId: user._id });
+    console.log("point37");
   } catch (error) {
-    res.status(500).json({ error: 'Registration failed' });
+    res.status(500).json({ error });
   }
 };
 
