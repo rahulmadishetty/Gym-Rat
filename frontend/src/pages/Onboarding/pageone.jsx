@@ -2,7 +2,7 @@ import React from 'react'
 import "./PageOne.css";
 
 const PageOne = ({ onButtonClick}) => {
-  return
+  return(
   <>
     <main
       className="pt5 black-80 center"
@@ -71,7 +71,7 @@ const PageOne = ({ onButtonClick}) => {
         </div>
       </form>
     </main>
-  </>
+  </>)
 }
 
 export default PageOne

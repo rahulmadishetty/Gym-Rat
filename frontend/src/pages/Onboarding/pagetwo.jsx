@@ -2,7 +2,7 @@ import React from 'react'
 import "./PageTwo.css";
 
 const PageTwo = ({ onButtonClick }) => {
-  return
+  return(
   <>
     <main
       className="pt5 black-80 center"
@@ -72,7 +72,7 @@ const PageTwo = ({ onButtonClick }) => {
         </div>
       </form>
     </main>
-  </>
+  </>)
 }
 
 export default PageTwo

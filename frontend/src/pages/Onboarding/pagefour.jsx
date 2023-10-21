@@ -2,7 +2,7 @@ import React from 'react'
 import tick from "./tick.png";
 
 const PageFour = () => {
-  return
+  return(
   <>
     <div
       className="mw5 bg-white pa2-ns mt5 dib"
@@ -25,7 +25,7 @@ const PageFour = () => {
         value="Launch Eden"
       />
     </div>
-  </>
+  </>)
 }
 
 export default PageFour

@@ -16,7 +16,7 @@ const PageThree = ({ onButtonClick }) => {
     setMultiUser(prevMultiUser => !prevMultiUser)
   }
 
-  return
+  return(
   <>
     <main
       className="pt5 black-80"
@@ -73,7 +73,7 @@ const PageThree = ({ onButtonClick }) => {
         onClick={() => onButtonClick("pagefour")}
       />
     </main>
-  </>
+  </>)
 }
 
 export default PageThree
