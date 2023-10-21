@@ -7,17 +7,7 @@ import InputField from '../Input/InputField';
 import { composeValidators, required, validateEmail } from '../../utils/validations';
 
 const SignInform = () => {
-  const [formData, setFormData] = useState({});
-
-  const handleOnChange = (e) => {
-    setFormData((prev) => {
-      return { ...prev, [e.target.name]: [e.target.value] }
-    })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const handleSubmit = (formData) => {
     console.log(formData)
 
   }
@@ -30,17 +20,17 @@ const SignInform = () => {
         onSubmit={handleSubmit}
         render={({ handleSubmit, submitting }) => (
           <form onSubmit={handleSubmit} className='d-flex flex-column align-items-center'>
-            <InputField name="email" label="Email" placeholder="Email" validate={composeValidators(required, validateEmail)} type="text" />
+            <InputField name="email" label="Email" placeholder="Email*" validate={composeValidators(required, validateEmail)} type="text" />
             <InputField
               name="password"
               label="Password"
-              placeholder="Password"
+              placeholder="Password*"
               validate={composeValidators(required)}
               type="password"
             />
-            <div className="buttons">
+            <div className="buttons my-4">
               <button type="submit" disabled={submitting}>
-                Submit
+                Sign In
               </button>
             </div>
           </form>

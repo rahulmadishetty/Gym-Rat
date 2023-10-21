@@ -1,21 +1,29 @@
 .card {
     background-color: #f7f7f7;
     width: 80%;
-    padding: 2em;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: auto;
+    // padding: 2em;
     box-sizing: border-box;
     border-radius: 8px;
-}
-
-.content{
-    max-height: 100%;
-}
-
-@media (max-width: 768px) {
-    .content {
-        flex-direction: column;
+    box-sizing: border-box;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      width: 100%;
+      padding: 0;
     }
-}
+  }
+  
+  .content {
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+    }
+  }

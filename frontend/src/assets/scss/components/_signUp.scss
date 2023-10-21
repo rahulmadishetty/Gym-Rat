@@ -5,14 +5,26 @@
 
     .inner-div {
         flex: 1;
-
         text-align: center;
 
+      
+    }
+
+    .image{
+        background-color: #69A2B0;
+        border-radius: 4px 4px 4px 4px;
     }
 
     .image-banner {
         height: 80vh;
         border-radius: 6em;
+    }
+
+    @media (max-width: 768px) {
+        .image-banner {
+            border-radius: 2em;
+            width: 100%;
+        }
     }
 
     input {
@@ -30,4 +42,44 @@
         border-radius: 8px;
         padding: 0.6em 4em;
     }
+}
+
+.sign-up {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.sign-up .inner-div {
+    flex: 1;
+    text-align: center;
+}
+
+.sign-up .image-banner {
+    height: 80vh;
+    border-radius: 6em;
+}
+
+@media (max-width: 768px) {
+    .sign-up .image-banner {
+        border-radius: 2em;
+        width: 100%;
+        border-radius: 0 0 2em 2em;
+    }
+}
+
+.sign-up input {
+    border-radius: 8px;
+    border: 1px solid #95ADB6;
+}
+
+.sign-up p {
+    color: gray;
+}
+
+.sign-up button {
+    background: #69A2B0;
+    color: white;
+    border-radius: 8px;
+    padding: 0.6em 4em;
 }
