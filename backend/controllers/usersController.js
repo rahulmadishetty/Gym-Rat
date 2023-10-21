@@ -1,16 +1,23 @@
 const User = require('../models/user');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const {getDb} = require('../config/database')
+const { ObjectId } = require('mongodb');
 
 // Get user profile
 exports.getUserProfile = async (req, res) => {
   const userId = req.params.userId;
 
   try {
-    const user = await User.findById(userId);
+    const db = getDb();
+    const user = await db.collection("user_signup").findOne({ _id: new ObjectId(userId) });
+
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
     res.status(200).json(user);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'Failed to fetch user profile' });
   }
 };
