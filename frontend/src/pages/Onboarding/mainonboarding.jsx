@@ -5,7 +5,7 @@ import PageOne from './PageOne';
 import PageTwo from './PageTwo';
 import PageThree from './PageThree';
 import PageFour from './PageFour';
-
+ 
 const MainOnboarding = () => {
 
   const [page, setPage] = useState("pageone");

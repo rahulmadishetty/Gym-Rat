@@ -3,7 +3,7 @@ import "./MultiStepProgressBar.css";
 import { ProgressBar, Step } from "react-step-progress-bar";
 
 const MultiStepProgressBar = ({ page, onPageNumberClick }) => {
-
+ 
   var stepPercentage = 0;
   if (page === "pageone") {
     stepPercentage = 16;
