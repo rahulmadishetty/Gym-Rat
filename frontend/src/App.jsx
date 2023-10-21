@@ -1,11 +1,10 @@
 import './App.css'
+import MainOnboarding from './pages/Onboarding/mainonboarding'
 
 function App() {
   return (
     <>
-      <h1>
-        Gym Rat
-      </h1>
+      <MainOnboarding />
     </>
   )
 }
