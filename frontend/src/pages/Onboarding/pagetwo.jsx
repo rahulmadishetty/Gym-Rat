@@ -1,11 +1,12 @@
 import React from 'react'
 
-function pagetwo() {
-  return (
+const PageTwo = () => {
+  return
+  <>
     <div>
       <h1>page two</h1>
     </div>
-  )
+  </>
 }
 
-export default pagetwo
+export default PageTwo
