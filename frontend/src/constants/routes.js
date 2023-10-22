@@ -14,5 +14,9 @@ const PROFILE = {
     INDEX : "/profile"
 }
 
+const ONBOARDING = {
+    INDEX : "/onboarding"
+}
 
-export { HOME, SIGN_UP, SIGN_IN, PROFILE };
+
+export { HOME, SIGN_UP, SIGN_IN, PROFILE, ONBOARDING };

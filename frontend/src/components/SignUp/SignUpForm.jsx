@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Form } from 'react-final-form';
 
@@ -8,13 +8,21 @@ import { composeValidators, required, validateConfirmPassword, validateEmail, va
 import BaseRequest from '../../services/requests/Base';
 
 const SignUpform = () => {
-  const navigate = useNavigate();
+  const [isAlertVisible, setIsAlertVisible] = useState(false)
 
-  const handleSubmit = (formData) => {
+  const handleSubmit = (formData, form) => {
     try {
       delete formData.password_confirmation;
       BaseRequest.post("http://localhost:3000/auth/signup", formData)
-      navigate(SIGN_IN.INDEX)
+
+      setIsAlertVisible(true)
+
+      form.reset()
+      form.resetFieldState('name');
+      form.resetFieldState('email');
+      form.resetFieldState('password');
+      form.resetFieldState('password_confirmation');
+
 
     } catch (err) {
       console.log(err)
@@ -25,10 +33,19 @@ const SignUpform = () => {
     <div>
       <h2 className='m-3'> Sign Up</h2>
       <p>Lets start your wonderful journey with fitness!</p>
+      <div class={`alert alert-success mx-2 ${isAlertVisible ? "" : "d-none"}`} role="alert">
+        Account created successfully. Please login!
+      </div>
       <Form
         onSubmit={handleSubmit}
-        render={({ handleSubmit, submitting, values }) => (
-          <form onSubmit={handleSubmit} className='d-flex flex-column align-items-center'>
+        initialValues={{
+          name: '',
+          email: '',
+          password: '',
+          password_confirmation: ''
+        }}
+        render={({ handleSubmit, submitting, values, form }) => (
+          <form onSubmit={event => handleSubmit(event, form)} className='d-flex flex-column align-items-center'>
             <InputField name="name" label="Name" placeholder="Name*" validate={required} type="text" />
             <InputField name="email" label="Email" placeholder="Email*" validate={composeValidators(required, validateEmail)} type="text" />
             <InputField
