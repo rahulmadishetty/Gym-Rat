@@ -1,4 +1,5 @@
 
+
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import { HOME, PROFILE, SIGN_IN, SIGN_UP } from './constants/routes';

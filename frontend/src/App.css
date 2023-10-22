@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.App {
+  text-align: center;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+}
