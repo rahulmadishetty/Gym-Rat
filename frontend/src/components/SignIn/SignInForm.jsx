@@ -5,10 +5,13 @@ import { Form } from 'react-final-form';
 import { SIGN_UP } from '../../constants/routes'
 import InputField from '../Input/InputField';
 import { composeValidators, required, validateEmail } from '../../utils/validations';
+import BaseRequest from '../../services/requests/Base';
 
 const SignInform = () => {
   const handleSubmit = (formData) => {
-    console.log(formData)
+    const response = BaseRequest.post("http://localhost:3000/auth/login", formData)
+
+    console.log(response)
 
   }
 

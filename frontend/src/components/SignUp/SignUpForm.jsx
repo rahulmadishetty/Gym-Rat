@@ -4,11 +4,17 @@ import { Form } from 'react-final-form';
 import { SIGN_IN } from '../../constants/routes';
 import InputField from '../Input/InputField';
 import { composeValidators, required, validateConfirmPassword, validateEmail, validatePassword } from '../../utils/validations';
+import BaseRequest from '../../services/requests/Base';
 
 
 const SignUpform = () => {
   const handleSubmit = (formData) => {
-    console.log(formData);
+
+    delete formData.password_confirmation;
+
+    const response = BaseRequest.post("http://localhost:3000/auth/signup", formData)
+
+    console.log(response)
   };
 
   return (
