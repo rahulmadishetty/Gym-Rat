@@ -2,6 +2,7 @@ const { MongoClient } = require('mongodb');
 
 let dbConnection;
 const dbUrl = process.env.DATABASE_URL
+
 module.exports = {
   connectToDb: (dbUrl, cb) => {
     MongoClient.connect(dbUrl)

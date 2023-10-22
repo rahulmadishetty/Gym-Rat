@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, key); // Replace 'your_secret_key' with your actual secret key
+    const decoded = jwt.verify(token, key); 
     req.user = decoded;
     next();
   } catch (error) {

@@ -1,31 +1,27 @@
-const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { getDb } = require('../config/database')
-
 
 // User registration
 exports.signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-
     const db = getDb()
-    // console.log(db, 'hit')
     // Check if the user already exists
     const userExists = await db.collection("user_signup").findOne({ email });
-    console.log(userExists)
+
     if (userExists) {
       return res.status(400).json({ error: 'User already exists' });
     } else {
       const hashedPassword = await bcrypt.hash(password, 10);
+
       await db.collection("user_signup").insertOne({ name, email, hashedPassword })
     }
 
     const user = await db.collection("user_signup").findOne({ email });
 
-
-
     const key = process.env.MONGODB_SECRET_KEY;
+
     // Generate a JWT token for the user
     const token = jwt.sign({ userId: user._id }, key, { expiresIn: '1h' });
 

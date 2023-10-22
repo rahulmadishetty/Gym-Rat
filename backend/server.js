@@ -5,8 +5,7 @@ const { connectToDb } = require('./config/database'); // Import the connectToDb 
 
 const authRoutes = require('./routes/auth');
 const workoutsRoutes = require('./routes/workout');
-const usersRoutes = require('./routes/users');
-const gymRatRouter = require('./routes/gymrat');
+const profileRoutes = require('./routes/profile');
 const cors = require('cors')
 
 const app = express();
@@ -22,8 +21,7 @@ connectToDb(dbUrl, (err) => {
     // Set up routes and start the server
     app.use('/auth', authRoutes);
     app.use('/workouts', workoutsRoutes);
-    app.use('/users', usersRoutes);
-    app.use('/gymrat', gymRatRouter);
+    app.use('/profile', profileRoutes);
     // app.use('/login', loginRouter);
 
     // Protected route (example)
