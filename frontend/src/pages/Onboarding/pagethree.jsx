@@ -1,67 +1,89 @@
-import React from 'react'
-import users from "./users.png";
+import React, { useState } from 'react'
 import "./PageThree.css";
+import loseweight from "./loseweight.png";
+import gainweight from "./gainweight.png";
+import shredweight from "./shredweight.png";
+
 
 const PageThree = ({ onButtonClick }) => {
 
-  const [singleUser, setSingleUser] = useState(false)
+  const [loseweightUser, setLoseweightUser] = useState(false)
 
   const onClickSingleUser = () => {
-    setSingleUser(prevSingleUser => !prevSingleUser)
+    setLoseweightUser(prevLoseweightUser => !prevLoseweightUser)
   }
 
-  const [multiUser, setMultiUser] = useState(false)
+  const [gainweightUser, setGainweightUser] = useState(false)
 
   const onClickMultiUser = () => {
-    setMultiUser(prevMultiUser => !prevMultiUser)
+    setGainweightUser(prevMultiUser => !prevMultiUser)
+  }
+
+  const [shrededUser, setShrededUser] = useState(false)
+
+  const onClickShrededUser = () => {
+    setShrededUser(prevShrededUser => !prevShrededUser)
   }
 
   return(
   <>
     <main
       className="pt5 black-80"
-      style={{ maxWidth: "50%", maxHeight: "25%", margin: "auto" }}
+      style={{ maxWidth: "50%", maxHeight: "25%", margin: "auto", marginTop: "50px" }}
     >
-      <h2>How are you planning to use Eden?</h2>
+      <h2>Choose your goal</h2>
       <p style={{ color: "#C0C0C0" }}>
-        We'll streamline your setup experience accordingly.
+        You can always change later
       </p>
       <div
         className="center ph4 selectionDiv"
-        style={{ width: "80%", height: "80%" }}
+        style={{ width: "100%", height: "310px" }}
       >
-        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked"
-          style={{ borderColor: singleUser ? '#664DE5' : '#EAEEF5' }}
-          onClick={onClickSingleUser}
+        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+          
+          onClick={() => onButtonClick("pagefour")}
         >
           <img
-            src={user}
+            src={loseweight}
             className="h2 w2"
-            title="single user icon"
+            title="loseweight user icon"
             alt="user-icon"
+            style={{width:"145px",height: "185px"}}
           />
-          <h1 className="f4 pl2 pr2">For myself</h1>
-          <p className="lh-copy f6 black-70 pl2 pr2">
-            Write better. Think more clearly. Stay organized.
-          </p>
+          <h1 className="f4 pl2 pr2">Lose Weight</h1>
         </div>
-        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked"
-          style={{ borderColor: multiUser ? '#664DE5' : '#EAEEF5' }}
-          onClick={onClickMultiUser}
+
+        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+          
+          onClick={() => onButtonClick("pagefour")}
         >
           <img
-            src={users}
+            src={gainweight}
             className="h2 w2"
-            title="multi user icon"
+            title="gainweight user icon"
             alt="users-icon"
+            style={{width:"145px",height: "185px"}}
           />
-          <h1 className="f4 pl2 pr2">With my team</h1>
-          <p className="lh-copy  f6 black-70 pl2 pr2 desc">
-            Wikis, docs, tasks and projects, all in one place.
-          </p>
+          <h1 className="f4 pl2 pr2">Gain Muscle Mass</h1>
         </div>
+
+        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+          
+          onClick={() => onButtonClick("pagefour")}
+        >
+          <img
+            src={shredweight}
+            className="h2 w2"
+            title="shredweight user icon"
+            alt="user-icon"
+            style={{width:"145px",height: "185px"}}
+          />
+          <h1 className="f4 pl2 pr2">Get Shredded</h1>
+          
+        </div>
+
       </div>
-      <input
+      {/* <input
         className="f6 grow br2 ph3 pv2 mb2 dib white submitButton"
         style={{
           borderStyle: "none",
@@ -71,7 +93,7 @@ const PageThree = ({ onButtonClick }) => {
         type="submit"
         value="Create Workspace"
         onClick={() => onButtonClick("pagefour")}
-      />
+      /> */}
     </main>
   </>)
 }

@@ -5,6 +5,7 @@ import PageOne from './PageOne';
 import PageTwo from './PageTwo';
 import PageThree from './PageThree';
 import PageFour from './PageFour';
+import PageFive from './PageFive';
 
 const MainOnboarding = () => {
 
@@ -26,6 +27,9 @@ const MainOnboarding = () => {
         setPage("pagethree");
         break;
       case "4":
+        setPage("pagefour");
+        break;
+      case "5":
         alert("Ooops! Seems like you did not fill the form.");
         break;
       default:
@@ -41,7 +45,8 @@ const MainOnboarding = () => {
           pageone: <PageOne onButtonClick={nextpage} />,
           pagetwo: <PageTwo onButtonClick={nextpage} />,
           pagethree: <PageThree onButtonClick={nextpage} />,
-          pagefour: <PageFour onButtonClick={nextpage} />
+          pagefour: <PageFour onButtonClick={nextpage} />,
+          pagefive: <PageFive onButtonClick={nextpage} />
         }[page]
       }
     </div>

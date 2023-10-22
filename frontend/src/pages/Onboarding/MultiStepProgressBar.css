@@ -32,6 +32,7 @@
     align-items: center;
     z-index: 0;
     margin: 20px auto;
+    margin-top: 60px;
 }
 
 .RSPBprogressBar .RSPBstep {

@@ -6,13 +6,13 @@ const PageOne = ({ onButtonClick}) => {
   <>
     <main
       className="pt5 black-80 center"
-      style={{ maxWidth: "40%", maxHeight: "30%", margin: "auto" }}
+      style={{ maxWidth: "40%", maxHeight: "30%", margin: "auto", padding: "50px" }}
     >
       <form className="measure">
-        <h2>Welcome! First things first...</h2>
-        <p style={{ color: "#C0C0C0" }}>You can always change them later.</p>
-        <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-          <div className="mt3">
+        <h2>WELCOME! FIRST THINGS FIRST...</h2>
+        <p style={{ color: "#C0C0C0" }}>PROVIDE BASIC DETAILS</p>
+        <fieldset id="sign_up" className="fieldset">
+          <div className="input_info">
             <label
               className="db lh-copy f6 mb1"
               htmlFor="full-name"
@@ -26,7 +26,7 @@ const PageOne = ({ onButtonClick}) => {
               name="full-name"
               id="full-name"
               size="30"
-              placeholder="Steve Jobs"
+              placeholder="Enter Username"
               style={{
                 borderStyle: "solid",
                 borderWidth: "1px",
@@ -34,7 +34,7 @@ const PageOne = ({ onButtonClick}) => {
               }}
             />
           </div>
-          <div className="mv3">
+          <div className="input_info">
             <label
               className="db lh-copy f6 mb1"
               htmlFor="display-name"
@@ -47,7 +47,7 @@ const PageOne = ({ onButtonClick}) => {
               type="text"
               name="display-name"
               id="display-name"
-              placeholder="Steve"
+              placeholder="Enter Display Name"
               style={{
                 borderStyle: "solid",
                 borderWidth: "1px",

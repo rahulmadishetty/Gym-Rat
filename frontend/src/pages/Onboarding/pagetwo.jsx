@@ -1,76 +1,80 @@
 import React from 'react'
 import "./PageTwo.css";
+import Age1 from "./Age1.png";
+import Age2 from "./Age2.png";
+import Age3 from "./Age3.png";
+import Age4 from "./Age4.png";
 
 const PageTwo = ({ onButtonClick }) => {
   return(
   <>
     <main
-      className="pt5 black-80 center"
-      style={{ maxWidth: "40%", maxHeight: "30%", margin: "auto" }}
+      className="pt5 black-80"
+      style={{ maxWidth: "65%", maxHeight: "25%", margin: "auto", marginTop: "50px" }}
     >
-      <form className="measure">
-        <h2>Let's set up a home for all your work</h2>
-        <p style={{ color: "#C0C0C0" }}>
-          You can always create another workspace later.
-        </p>
-        <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-          <div className="mt3">
-            <label
-              className="left db lh-copy f6 mb1"
-              htmlFor="workspace-name"
-              style={{ textAlign: 'left' }}
-            >
-              Workspace Name
-            </label>
-            <input
-              className="f6 br2 ph3 pv2 mb2 dib black w-100"
-              type="text"
-              name="workspace-name"
-              id="workspace-name"
-              size="30"
-              placeholder="Eden"
-              style={{
-                borderStyle: "solid",
-                borderWidth: "1px",
-                borderColor: "#EAEEF5",
-              }}
-            />
-          </div>
-          <div className="mv3">
-            <label className="db lh-copy f6 mb1" htmlFor="workspace-url" style={{ textAlign: 'left' }}>
-              Workspace URL
-              <span className="ml1" style={{ color: "#C0C0C0" }}>
-                {" "}
-                (optional)
-              </span>
-            </label>
-            <div className="center urlButton br2 mt1">
-              <button class="dropbtn urlInput f6 br2 ph2 pv2">www.eden.com/</button>
-              <input
-                className="f6 ph3 pv2 dib br2 black w-100"
-                type="url"
-                name="workspace-url"
-                id="workspace-url"
-                placeholder="Example"
-                style={{
-                  borderStyle: "solid",
-                  borderWidth: "1px",
-                  borderColor: "#EAEEF5",
-                }}
-              />
-            </div>
-          </div>
-        </fieldset>
-        <div className="">
-          <input
-            className="f6 grow br2 ph3 pv2 mb2 dib white"
-            style={{ borderStyle: "none", width: "100%", backgroundColor: '#664DE5' }}
-            type="submit"
-            value="Create Workspace"
-            onClick={() => onButtonClick("pagethree")}
+      <h2>Build your perfect body</h2>
+      <p style={{ color: "#C0C0C0" }}>
+        According to your Age and BMI
+      </p>
+      <div
+        className="center ph4 selectionDiv"
+        style={{ width: "100%", height: "310px" }}
+      >
+        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+          
+          onClick={() => onButtonClick("pagethree")}
+        >
+          <img
+            src={Age1}
+            className="h2 w2"
+            title="Age1 user icon"
+            alt="user-icon"
+            style={{width:"145px",height: "185px"}}
           />
+          <h1 className="f4 pl2 pr2">Age: 18-29</h1>
         </div>
-      </form>
+
+        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+          
+          onClick={() => onButtonClick("pagethree")}
+        >
+          <img
+            src={Age2}
+            className="h2 w2"
+            title="Age2 user icon"
+            alt="users-icon"
+            style={{width:"145px",height: "185px"}}
+          />
+          <h1 className="f4 pl2 pr2">Age: 30-39</h1>
+        </div>
+
+        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+          
+          onClick={() => onButtonClick("pagethree")}
+        >
+          <img
+            src={Age3}
+            className="h2 w2"
+            title="Age3 user icon"
+            alt="user-icon"
+            style={{width:"145px",height: "185px"}}
+          />
+          <h1 className="f4 pl2 pr2">Age: 40-49</h1>
+        </div>
+        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+          
+          onClick={() => onButtonClick("pagethree")}
+        >
+          <img
+            src={Age4}
+            className="h2 w2"
+            title="Age4 user icon"
+            alt="user-icon"
+            style={{width:"145px",height: "185px"}}
+          />
+          <h1 className="f4 pl2 pr2">Age: 50+</h1>
+        </div>
+      </div>
     </main>
   </>)
 }
