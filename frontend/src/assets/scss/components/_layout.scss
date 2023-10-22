@@ -1,0 +1,28 @@
+.navbar {
+    overflow: hidden;
+    border-right: 1px solid gray;
+  }
+  
+  .navbar a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+  
+  }
+  
+  .navbar a.active {
+    border-bottom: 2px solid #69A2B0;
+  }
+  
+
+  .header{
+    background-color: #e9eaf7;
+  }
+
+  .logo{
+    font-family: fantasy;
+  }

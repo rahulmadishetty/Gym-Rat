@@ -1,5 +1,9 @@
 @import "./base/base";
+@import "./components/signUp";
+@import "./components/layout";
+
+@import "./components/card";
 
 @import "./abstracts/variables.scss";
 
-@import "./mixins/mixins";
+@import "./mixins/mixins.scss";
