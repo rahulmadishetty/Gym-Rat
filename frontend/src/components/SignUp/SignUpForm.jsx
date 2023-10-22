@@ -1,14 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Form } from 'react-final-form';
+
 import { SIGN_IN } from '../../constants/routes';
 import InputField from '../Input/InputField';
 import { composeValidators, required, validateConfirmPassword, validateEmail, validatePassword } from '../../utils/validations';
-
+import BaseRequest from '../../services/requests/Base';
 
 const SignUpform = () => {
+  const navigate = useNavigate();
+
   const handleSubmit = (formData) => {
-    console.log(formData);
+    try {
+      delete formData.password_confirmation;
+      BaseRequest.post("http://localhost:3000/auth/signup", formData)
+      navigate(SIGN_IN.INDEX)
+
+    } catch (err) {
+      console.log(err)
+    }
   };
 
   return (
