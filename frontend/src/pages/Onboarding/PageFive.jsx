@@ -7,7 +7,6 @@ import { HOME } from '../../constants/routes';
 const PageFive = () => {
 
   const navigate = useNavigate();
-
   const handleSubmit =(formData) =>{
     try{
       BaseRequest.post("http://localhost:3000/auth/onboarding", formData);
