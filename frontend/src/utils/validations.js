@@ -30,8 +30,6 @@ export const validateEmail = (value) => {
 
 
 export const validateConfirmPassword = (value, allValues) => {
-
-    console.log(value, allValues)
     if (!value) {
         return 'Required';
     }

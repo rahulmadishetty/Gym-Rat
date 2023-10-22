@@ -1,5 +1,5 @@
 const HOME = {
-    INDEX: '/'
+    INDEX: '/home'
 };
 
 const SIGN_UP = {
@@ -10,5 +10,9 @@ const SIGN_IN = {
     INDEX: '/sign-in'
 };
 
+const PROFILE = {
+    INDEX : "/profile"
+}
 
-export { HOME, SIGN_UP, SIGN_IN };
+
+export { HOME, SIGN_UP, SIGN_IN, PROFILE };

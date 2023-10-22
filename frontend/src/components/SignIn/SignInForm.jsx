@@ -1,18 +1,23 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Form } from 'react-final-form';
 
-import { SIGN_UP } from '../../constants/routes'
+import { HOME, SIGN_UP } from '../../constants/routes'
 import InputField from '../Input/InputField';
 import { composeValidators, required, validateEmail } from '../../utils/validations';
 import BaseRequest from '../../services/requests/Base';
 
 const SignInform = () => {
-  const handleSubmit = (formData) => {
-    const response = BaseRequest.post("http://localhost:3000/auth/login", formData)
+  const navigate = useNavigate();
+  
+  const handleSubmit = async (formData) => {
+    try {
+      await BaseRequest.post("http://localhost:3000/auth/login", formData)
+      navigate(HOME.INDEX)
 
-    console.log(response)
-
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (
