@@ -10,7 +10,7 @@ const PageFive = () => {
 
   const handleSubmit =(formData) =>{
     try{
-      BaseRequest.post("http://localhost:3000/auth/signup", formData);
+      BaseRequest.post("http://localhost:3000/auth/onboarding", formData);
       navigate(HOME.INDEX);
     }
     catch{
