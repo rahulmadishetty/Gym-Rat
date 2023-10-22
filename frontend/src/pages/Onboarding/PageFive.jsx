@@ -1,7 +1,23 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import tick from "./tick.png";
+import BaseRequest from '../../services/requests/Base';
+import { HOME } from '../../constants/routes';
 
 const PageFive = () => {
+
+  const navigate = useNavigate();
+
+  const handleSubmit =(formData) =>{
+    try{
+      BaseRequest.post("http://localhost:3000/auth/signup", formData);
+      navigate(HOME.INDEX);
+    }
+    catch{
+      console.log(err)
+    }
+  }
+
   return(
   <>
     <div
@@ -24,6 +40,7 @@ const PageFive = () => {
         style={{ borderStyle: "none", width: "100%", backgroundColor: '#664DE5', marginTop: "55px" }}
         type="submit"
         value="Home Page"
+        onClick={handleSubmit}
       />
     </div>
   </>)
