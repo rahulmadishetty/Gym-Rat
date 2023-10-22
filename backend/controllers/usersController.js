@@ -41,3 +41,28 @@ exports.updateUser = async (req, res) => {
     res.status(500).json({ error: 'User update failed' });
   }
 };
+
+// usersController.js
+exports.login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const db = getDb();
+    const user = await db.collection("user_signup").findOne({ email });
+
+    if (!user) {
+      return res.status(401).json({ error: 'Invalid email or password' });
+    }
+
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (!passwordMatch) {
+      return res.status(401).json({ error: 'Invalid email or password' });
+    }
+
+    res.status(200).json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Login failed' });
+  }
+};

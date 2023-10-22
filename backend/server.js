@@ -7,10 +7,11 @@ const authRoutes = require('./routes/auth');
 const workoutsRoutes = require('./routes/workout');
 const usersRoutes = require('./routes/users');
 const gymRatRouter = require('./routes/gymrat');
+const cors = require('cors')
 
 const app = express();
 const dbUrl = process.env.DATABASE_URL;
-
+app.use(cors());
 app.use(express.json());
 
 // Connect to the database and start the server only when the connection is established.
@@ -23,6 +24,7 @@ connectToDb(dbUrl, (err) => {
     app.use('/workouts', workoutsRoutes);
     app.use('/users', usersRoutes);
     app.use('/gymrat', gymRatRouter);
+    // app.use('/login', loginRouter);
 
     // Protected route (example)
     app.get('/protected', authMiddleware, (req, res) => {
