@@ -10,7 +10,7 @@ const PageOne = ({ onButtonClick}) => {
     >
       <form className="measure">
         <h2>WELCOME! FIRST THINGS FIRST...</h2>
-        <p style={{ color: "#C0C0C0" }}>Provide basic details</p>
+        <p style={{ color: "#6b6b6b" }}>Provide basic details</p>
         <fieldset id="sign_up" className="fieldset">
           <div className="input_info">
             <label
