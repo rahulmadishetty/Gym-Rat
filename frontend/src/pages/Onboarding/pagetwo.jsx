@@ -29,7 +29,7 @@ const PageTwo = ({ onButtonClick }) => {
             className="h2 w2"
             title="Age1 user icon"
             alt="user-icon"
-            style={{width:"145px",height: "185px"}}
+            style={{width:"145px",height: "185px",alignSelf: "center"}}
           />
           <h1 className="f4 pl2 pr2">Age: 18-29</h1>
         </div>
@@ -43,7 +43,7 @@ const PageTwo = ({ onButtonClick }) => {
             className="h2 w2"
             title="Age2 user icon"
             alt="users-icon"
-            style={{width:"145px",height: "185px"}}
+            style={{width:"145px",height: "185px",alignSelf: "center"}}
           />
           <h1 className="f4 pl2 pr2">Age: 30-39</h1>
         </div>
@@ -57,7 +57,7 @@ const PageTwo = ({ onButtonClick }) => {
             className="h2 w2"
             title="Age3 user icon"
             alt="user-icon"
-            style={{width:"145px",height: "185px"}}
+            style={{width:"145px",height: "185px",alignSelf: "center"}}
           />
           <h1 className="f4 pl2 pr2">Age: 40-49</h1>
         </div>
@@ -70,7 +70,7 @@ const PageTwo = ({ onButtonClick }) => {
             className="h2 w2"
             title="Age4 user icon"
             alt="user-icon"
-            style={{width:"145px",height: "185px"}}
+            style={{width:"145px",height: "185px",alignSelf: "center"}}
           />
           <h1 className="f4 pl2 pr2">Age: 50+</h1>
         </div>

@@ -48,7 +48,7 @@ const PageThree = ({ onButtonClick }) => {
             className="h2 w2"
             title="loseweight user icon"
             alt="user-icon"
-            style={{width:"145px",height: "185px"}}
+            style={{width:"145px",height: "185px",alignSelf: "center"}}
           />
           <h1 className="f4 pl2 pr2">Lose Weight</h1>
         </div>
@@ -62,9 +62,9 @@ const PageThree = ({ onButtonClick }) => {
             className="h2 w2"
             title="gainweight user icon"
             alt="users-icon"
-            style={{width:"145px",height: "185px"}}
+            style={{width:"145px",height: "185px",alignSelf: "center"}}
           />
-          <h1 className="f4 pl2 pr2">Gain Muscle Mass</h1>
+          <h1 className="f4 pl2 pr2">Gain Muscle</h1>
         </div>
 
         <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
@@ -76,7 +76,7 @@ const PageThree = ({ onButtonClick }) => {
             className="h2 w2"
             title="shredweight user icon"
             alt="user-icon"
-            style={{width:"145px",height: "185px"}}
+            style={{width:"145px",height: "185px",alignSelf: "center"}}
           />
           <h1 className="f4 pl2 pr2">Get Shredded</h1>
           

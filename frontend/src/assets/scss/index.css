@@ -3,4 +3,148 @@ body,
 #root {
   height: 100%;
   width: 100%;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+input {
+  background: transparent;
+  color: black;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.sign-up {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.sign-up .inner-div {
+  flex: 1;
+  text-align: center;
+}
+.sign-up .image {
+  background-color: #69A2B0;
+  border-radius: 4px 4px 4px 4px;
+}
+.sign-up .image-banner {
+  height: 80vh;
+  border-radius: 6em;
+}
+@media (max-width: 768px) {
+  .sign-up .image-banner {
+    border-radius: 2em;
+    width: 100%;
+  }
+}
+.sign-up input {
+  border-radius: 8px;
+  border: 1px solid #95ADB6;
+}
+.sign-up p {
+  color: gray;
+}
+.sign-up button {
+  background: #69A2B0;
+  color: white;
+  border-radius: 8px;
+  padding: 0.6em 4em;
+}
+
+.sign-up {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.sign-up .inner-div {
+  flex: 1;
+  text-align: center;
+}
+
+.sign-up .image-banner {
+  height: 80vh;
+  border-radius: 6em;
+}
+
+@media (max-width: 768px) {
+  .sign-up .image-banner {
+    border-radius: 2em;
+    width: 100%;
+    border-radius: 0 0 2em 2em;
+  }
+}
+.sign-up input {
+  border-radius: 8px;
+  border: 1px solid #95ADB6;
+}
+
+.sign-up p {
+  color: gray;
+}
+
+.sign-up button {
+  background: #69A2B0;
+  color: white;
+  border-radius: 8px;
+  padding: 0.6em 4em;
+}
+
+.navbar {
+  overflow: hidden;
+  border-right: 1px solid gray;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar a.active {
+  border-bottom: 2px solid #d48f0f;
+}
+
+.header {
+  background-color: #FFEAC2;
+}
+
+.logo {
+  font-family: fantasy;
+}
+
+.card {
+  background-color: #f7f7f7;
+  width: 80%;
+  margin: auto;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    padding: 0;
+  }
+}
+.content {
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=index.css.map */

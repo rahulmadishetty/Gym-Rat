@@ -30,7 +30,7 @@ const PageFour = ({ onButtonClick }) => {
             className="h2 w2"
             title="Ectomorph user icon"
             alt="user-icon"
-            style={{width:"145px",height: "185px"}}
+            style={{width:"145px",height: "185px",alignSelf: "center"}}
           />
           <h1 className="f4 pl2 pr2">Ectomorph</h1>
         </div>
@@ -44,7 +44,7 @@ const PageFour = ({ onButtonClick }) => {
             className="h2 w2"
             title="Mesomorph user icon"
             alt="users-icon"
-            style={{width:"145px",height: "185px"}}
+            style={{width:"145px",height: "185px",alignSelf: "center"}}
           />
           <h1 className="f4 pl2 pr2">Mesomorph</h1>
         </div>
@@ -58,7 +58,7 @@ const PageFour = ({ onButtonClick }) => {
             className="h2 w2"
             title="Endomorph user icon"
             alt="user-icon"
-            style={{width:"145px",height: "185px"}}
+            style={{width:"145px",height: "185px",alignSelf: "center"}}
           />
           <h1 className="f4 pl2 pr2">Endomorph</h1>
         </div>
@@ -69,7 +69,7 @@ const PageFour = ({ onButtonClick }) => {
             className="h2 w2"
             title="BodyTypeDesc user icon"
             alt="user-icon"
-            style={{width:"400px",height: "250px"}}
+            style={{width:"400px",height: "250px",alignSelf: "center"}}
           />
         </div>
     </main>
