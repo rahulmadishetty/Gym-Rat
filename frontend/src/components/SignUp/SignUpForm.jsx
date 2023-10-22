@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Form } from 'react-final-form';
 
-import { SIGN_IN } from '../../constants/routes';
+import { SIGN_IN, ONBOARDING } from '../../constants/routes';
 import InputField from '../Input/InputField';
 import { composeValidators, required, validateConfirmPassword, validateEmail, validatePassword } from '../../utils/validations';
 import BaseRequest from '../../services/requests/Base';
 
 const SignUpform = () => {
   const [isAlertVisible, setIsAlertVisible] = useState(false)
+  const navigate = useNavigate();
 
   const handleSubmit = (formData, form) => {
     try {
       delete formData.password_confirmation;
       BaseRequest.post("http://localhost:3000/auth/signup", formData)
-
       setIsAlertVisible(true)
-
+      navigate(ONBOARDING.INDEX)
       form.reset()
       form.resetFieldState('name');
       form.resetFieldState('email');

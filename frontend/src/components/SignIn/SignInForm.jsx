@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Form } from 'react-final-form';
 
-import { HOME, ONBOARDING, SIGN_UP } from '../../constants/routes'
+import { ONBOARDING, SIGN_UP } from '../../constants/routes'
 import InputField from '../Input/InputField';
 import { composeValidators, required, validateEmail } from '../../utils/validations';
 import BaseRequest from '../../services/requests/Base';

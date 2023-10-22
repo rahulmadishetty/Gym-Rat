@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-import { HOME, PROFILE, SIGN_IN } from '../../constants/routes';
+import { HOME, PROFILE, SIGN_IN, ONBOARDING } from '../../constants/routes';
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -14,6 +14,9 @@ const Navbar = () => {
             <div className="navbar px-3">
                 <NavLink to={HOME.INDEX}>
                     Home
+                </NavLink>
+                <NavLink to={ONBOARDING.INDEX}>
+                    Onboarding
                 </NavLink>
                 <NavLink to={PROFILE.INDEX}>
                     Profile
