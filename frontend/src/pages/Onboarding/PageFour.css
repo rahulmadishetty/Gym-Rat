@@ -1,0 +1,98 @@
+.clicked{
+    border-color: #EAEEF5;
+    cursor: pointer;
+    text-align: left;
+}
+
+.clicked:hover{
+    border-color: #69A2B0
+}
+
+.clicked:active{
+    border-color: #69A2B0
+}
+
+@media screen and (max-width: 1228px){
+
+    .selectionDiv{
+        flex-wrap: wrap;
+    }
+
+    .clicked{
+        min-width:200px;
+    }
+ }
+
+@media screen and (max-width: 800px){
+
+   .submitButton{
+    min-width: 100%;
+   }
+}
+
+
+.mv3 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.ma3 {
+    margin: 1rem;
+}
+
+.pa3 {
+    padding: 1rem;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.mw5 {
+    max-width: 16rem;
+}
+
+.dib {
+    display: inline-block;
+}
+
+.br3 {
+    border-radius: 0.5rem;
+}
+
+.b--black-10 {
+    border-color: rgba( 0, 0, 0, .1 );
+}
+
+.ba {
+    border-style: solid;
+    /* border-width: 1px; */
+}
+
+.clicked {
+    cursor: pointer;
+    text-align: left;
+}
+
+.f4 {
+    font-size: 1.25rem;
+}
+
+.pr2 {
+    padding-right: 0.5rem;
+}
+
+.pl2 {
+    padding-left: 0.5rem;
+}
+
+.card {
+    width: 25%;
+    text-align: center;
+}
+/* 
+.card:hover {
+    color:#664DE5;
+    border-color:#664DE5;
+    opacity: 0.9
+} */

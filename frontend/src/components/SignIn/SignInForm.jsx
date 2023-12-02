@@ -2,20 +2,23 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Form } from 'react-final-form';
 
-import { HOME, SIGN_UP } from '../../constants/routes'
+import { ONBOARDING, SIGN_UP } from '../../constants/routes'
 import InputField from '../Input/InputField';
 import { composeValidators, required, validateEmail } from '../../utils/validations';
 import BaseRequest from '../../services/requests/Base';
 
 const SignInform = () => {
   const navigate = useNavigate();
+
+  const [errorMessage, setErrorMessage] = useState(false);
   
   const handleSubmit = async (formData) => {
     try {
       await BaseRequest.post("http://localhost:3000/auth/login", formData)
-      navigate(HOME.INDEX)
+      navigate(ONBOARDING.INDEX)
 
     } catch (err) {
+      setErrorMessage(true)
       console.log(err)
     }
   }
@@ -28,6 +31,7 @@ const SignInform = () => {
         onSubmit={handleSubmit}
         render={({ handleSubmit, submitting }) => (
           <form onSubmit={handleSubmit} className='d-flex flex-column align-items-center'>
+            <div className={`error ${errorMessage? "" : "d-none"}`}>Invalid email or password</div>
             <InputField name="email" label="Email" placeholder="Email*" validate={composeValidators(required, validateEmail)} type="text" />
             <InputField
               name="password"
