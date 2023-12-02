@@ -20,7 +20,7 @@ const PageTwo = ({ onButtonClick }) => {
         className="center ph4 selectionDiv"
         style={{ width: "100%", height: "310px" }}
       >
-        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+        <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
           onClick={() => onButtonClick("pagethree")}
         >
@@ -34,7 +34,7 @@ const PageTwo = ({ onButtonClick }) => {
           <h1 className="f4 pl2 pr2">Age: 18-29</h1>
         </div>
 
-        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+        <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
           onClick={() => onButtonClick("pagethree")}
         >
@@ -48,7 +48,7 @@ const PageTwo = ({ onButtonClick }) => {
           <h1 className="f4 pl2 pr2">Age: 30-39</h1>
         </div>
 
-        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+        <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
           onClick={() => onButtonClick("pagethree")}
         >
@@ -61,7 +61,7 @@ const PageTwo = ({ onButtonClick }) => {
           />
           <h1 className="f4 pl2 pr2">Age: 40-49</h1>
         </div>
-        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+        <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
           onClick={() => onButtonClick("pagethree")}
         >

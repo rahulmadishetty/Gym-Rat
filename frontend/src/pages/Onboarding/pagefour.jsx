@@ -21,7 +21,7 @@ const PageFour = ({ onButtonClick }) => {
         className="center ph4 selectionDiv"
         style={{ width: "100%", height: "310px" }}
       >
-        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+        <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
           onClick={() => onButtonClick("pagefive")}
         >
@@ -35,7 +35,7 @@ const PageFour = ({ onButtonClick }) => {
           <h1 className="f4 pl2 pr2">Ectomorph</h1>
         </div>
 
-        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+        <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
           onClick={() => onButtonClick("pagefive")}
         >
@@ -49,7 +49,7 @@ const PageFour = ({ onButtonClick }) => {
           <h1 className="f4 pl2 pr2">Mesomorph</h1>
         </div>
 
-        <div className="mw5 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+        <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
           onClick={() => onButtonClick("pagefive")}
         >
