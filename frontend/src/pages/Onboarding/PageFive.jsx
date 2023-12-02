@@ -20,7 +20,7 @@ const PageFive = () => {
   return(
   <>
     <div
-      className="mw5 bg-white pa2-ns mt5 dib"
+      className="mw5 mx-3 my-2 bg-white pa2-ns mt5 dib"
       style={{ maxWidth: "30%", maxHeight: '30%' }}
     >
       <img
@@ -36,7 +36,7 @@ const PageFive = () => {
       </p>
       <input
         className="f6 grow br2 ph3 pv2 mb2 dib white"
-        style={{ borderStyle: "none", width: "100%", backgroundColor: '#664DE5', marginTop: "55px" }}
+        style={{ borderStyle: "none", width: "100%", backgroundColor: '#69A2B0', marginTop: "55px" }}
         type="submit"
         value="Home Page"
         onClick={handleSubmit}

@@ -62,7 +62,7 @@ const PageOne = ({ onButtonClick}) => {
             style={{
               borderStyle: "none",
               width: "100%",
-              backgroundColor: "#664DE5",
+              backgroundColor: "#69A2B0",
             }}
             type="submit"
             value="Create Workspace"

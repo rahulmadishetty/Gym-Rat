@@ -5,11 +5,11 @@
 }
 
 .clicked:hover{
-    border-color: #664DE5
+    border-color: #69A2B0
 }
 
 .clicked:active{
-    border-color: #664DE5
+    border-color: #69A2B0
 }
 
 @media screen and (max-width: 1228px){
