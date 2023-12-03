@@ -1,0 +1,61 @@
+.modal {
+    position: fixed;
+    background: rgba(10, 10, 10, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: block !important;
+    border: 0;
+
+}
+
+.modal-content {
+    max-width: 400px;
+    margin: 0 auto;
+
+    input, textarea {
+        margin: 1em;
+        padding: 0.5em;
+        border-radius: 8px;
+        border: 2px solid gray;
+    }
+
+    button {
+        background-color: beige;
+        width: 100%;
+        margin-top: 0.5em;
+    }
+
+    .modal-header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    p{
+        color: gray;
+    }
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+body.modal-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: inherit;
+    backdrop-filter: blur(17px);
+    z-index: 5;
+}
+
+.alert-modal{
+    background-color: beige;
+    padding: 0.3em;
+    border-radius: 8px;
+}
