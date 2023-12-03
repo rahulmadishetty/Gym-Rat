@@ -26,3 +26,5 @@
   display: flex;
   justify-content: center;
 }
+
+.form{padding:20px; border:1px solid #d9d9d9;}
