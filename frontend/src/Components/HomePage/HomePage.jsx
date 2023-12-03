@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 
 import Workouts from './Workouts'
 
-
-const HomePage = ({setCurrentSelectedWorkout}) => {
+const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
     const [activeTab, setActiveTab] = useState("1")
 
     const daysWorkouts = [
@@ -159,12 +158,14 @@ const HomePage = ({setCurrentSelectedWorkout}) => {
         },
     ]
 
+    if (isLoading) return null;
+
     return (
         <>
             <section className='home'>
                 <article>
                     <h3 className='p-3 my-3 mx-3'>Hello <span className='color-primary fw-bold'>Ann</span>,
-                     these workouts are personalized, just for you! </h3>
+                        these workouts are personalized, just for you! </h3>
                 </article>
                 <article>
                 </article>
