@@ -70,7 +70,7 @@ const SignUpform = () => {
           </form>
         )}
       />
-      <div className='m-3'>
+      <div className='m-3 color-gray'>
         Already have an account? <Link to={SIGN_IN.INDEX}>  Sign In </Link>
       </div>
     </div>

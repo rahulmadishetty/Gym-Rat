@@ -48,7 +48,7 @@ const SignInform = () => {
           </form>
         )}
       />
-      <div className='m-3'>
+      <div className='m-3 color-gray'>
         Don't have an account? <Link to={SIGN_UP.INDEX}> Sign up </Link>
       </div>
     </div>
