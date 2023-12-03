@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
-    const key = process.env.MONGODB_SECRET_KEY;
+  const key = process.env.MONGODB_SECRET_KEY;
   const token = req.header('Authorization');
 
   if (!token) {
