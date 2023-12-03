@@ -19,3 +19,12 @@ input{
 .cursor-pointer{
     cursor: pointer;
 }
+
+.color-gray{
+    color: gray;
+}
+
+.tooltip-hover{
+    z-index: 100;
+    background-color: black !important;
+}

@@ -11,6 +11,8 @@ import Profile from './pages/Profile';
 import Onboarding from './pages/Onboarding/mainonboarding'
 import LandingPage from './pages/LandingPage/LandingPage';
 
+import 'react-tooltip/dist/react-tooltip.css'
+
 function App() {
   return (
     <Router>
