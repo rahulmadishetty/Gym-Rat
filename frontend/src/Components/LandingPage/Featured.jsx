@@ -42,7 +42,7 @@ const FeaturedSection = () => {
     ];
 
     return (
-        <div className="featured-section">
+        <div className="featured-section mb-5">
             <h2 className="featured-title mb-4">Featured Articles</h2>
             <div className="article-cards">
                 {articles.map((article) => (
