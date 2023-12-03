@@ -1,7 +1,14 @@
 import axios from 'axios';
 
+const token = () => {
+  return localStorage.getItem("token")
+}
+
 export const DEFAULT_HEADERS = {
-  responseType: ''
+  headers: {
+    'Authorization': `${token()}`,
+    'Content-Type': 'application/json',
+  },
 };
 
 class BaseRequest {
@@ -15,6 +22,10 @@ class BaseRequest {
 
   static post(url, data) {
     return axios.post(url, data);
+  }
+
+  static postAuthenticated(url, data){
+    return axios.post(url, data, DEFAULT_HEADERS)
   }
 
   static patch(url, data, response) {

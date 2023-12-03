@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./PageThree.css";
 import Ectomorph from "./Ectomorph.png";
 import Mesomorph from "./Mesomorph.png";
 import Endomorph from "./Endomorph.png";
-import BodyTypeDesc from "./BodyTypeDesc.png";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 
 import { Tooltip } from 'react-tooltip'
+import { OnboardingContext } from '../../context/Onboarding';
+import BaseRequest from '../../services/requests/Base';
 
 const BodyTypeTooltip = () => (
   <div>
@@ -16,7 +17,6 @@ const BodyTypeTooltip = () => (
     <p className='text-start'>
       Thumb and index finger:
       <ul>
-
         <li>
           Ectomorph - wrapping around with ease
         </li>
@@ -27,15 +27,25 @@ const BodyTypeTooltip = () => (
           Endomorph - doesn't come into contact
         </li>
       </ul>
-
-
-
     </p>
   </div>
 );
 
 
 const PageFour = ({ onButtonClick }) => {
+  const { handleOnChange, onboardingData, userId } = useContext(OnboardingContext);
+  const id = localStorage.getItem("userId", userId)
+
+  const handleOnSubmit = async () => {
+    try {
+      await BaseRequest.postAuthenticated(`http://localhost:3000/profile/create`, { ...onboardingData, userId: id })
+
+    } catch (err) {
+      console.log(err)
+    }
+
+  }
+
   return (
     <>
       <main
@@ -55,7 +65,12 @@ const PageFour = ({ onButtonClick }) => {
         >
           <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
 
-            onClick={() => onButtonClick("pagefive")}
+            // onClick={() => onButtonClick("pagefive")}
+            onClick={(e) => {
+              handleOnChange("bodyType", "ectomorph");
+              handleOnSubmit()
+              onButtonClick("pagefive")
+            }}
           >
             <img
               src={Ectomorph}
@@ -69,7 +84,12 @@ const PageFour = ({ onButtonClick }) => {
 
           <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
 
-            onClick={() => onButtonClick("pagefive")}
+            // onClick={() => onButtonClick("pagefive")}
+            onClick={(e) => {
+              handleOnChange("bodyType", "mesomorph");
+              handleOnSubmit()
+              onButtonClick("pagefive")
+            }}
           >
             <img
               src={Mesomorph}
@@ -82,7 +102,12 @@ const PageFour = ({ onButtonClick }) => {
           </div>
 
           <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
-            onClick={() => onButtonClick("pagefive")}
+            // onClick={() => onButtonClick("pagefive")}
+            onClick={(e) => {
+              handleOnChange("bodyType", "endomorph");
+              handleOnSubmit()
+              onButtonClick("pagefive")
+            }}
           >
             <img
               src={Endomorph}
