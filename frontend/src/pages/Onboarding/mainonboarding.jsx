@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "../../App.css";
-import MultiStepProgressBar from './MultiStepProgressBar';
+import MultiStepProgressBar from './Multistepprogressbar';
 import PageOne from './PageOne';
 import PageTwo from './PageTwo';
 import PageThree from './PageThree';
