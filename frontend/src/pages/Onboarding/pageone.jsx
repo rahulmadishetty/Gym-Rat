@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./PageOne.css";
+import { OnboardingContext } from '../../context/Onboarding';
 
 const PageOne = ({ onButtonClick}) => {
+  const {handleOnChange} = useContext(OnboardingContext);
+
   return(
   <>
     <main
@@ -26,6 +29,7 @@ const PageOne = ({ onButtonClick}) => {
               name="full-name"
               id="full-name"
               size="30"
+              onChange={(e)=> {handleOnChange("fName", e.target.value)}}
               placeholder="Enter Username"
               style={{
                 borderStyle: "solid",
@@ -46,6 +50,7 @@ const PageOne = ({ onButtonClick}) => {
               className="f6 br2 ph3 pv2 mb2 dib black w-100"
               type="text"
               name="display-name"
+              onChange={(e)=> {handleOnChange("dName", e.target.value)}}
               id="display-name"
               placeholder="Enter Display Name"
               style={{
