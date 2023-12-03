@@ -6,9 +6,11 @@ import FeaturedSection from '../../components/LandingPage/Featured'
 const LandingPage = () => {
   return (
     <div>
-        <Layout />
+        <Layout>
         <BrandingCard />
         <FeaturedSection />
+        </Layout>
+  
     </div>
   )
 }
