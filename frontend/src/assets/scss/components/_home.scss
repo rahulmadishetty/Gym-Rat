@@ -75,3 +75,67 @@
         transition: transform 0.3s ease;
     }
 }
+
+.branding{
+   p{
+    font-size: 18px;
+    color: gray;
+   }
+}
+
+.featured-section {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .featured-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .article-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    // justify-content: space-between;
+  }
+  
+  .article-card {
+    text-decoration: none;
+    color: #000;
+    width: 25%;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .article-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .article-card img {
+    width: 100%;
+    // height: auto;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  .card-content h3 {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .article-card {
+      width: 100%;
+    }
+  }
+  

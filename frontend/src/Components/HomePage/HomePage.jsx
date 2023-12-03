@@ -164,17 +164,14 @@ const HomePage = () => {
             <section className='home'>
                 <article>
                     <h3 className='p-3 my-3 mx-3'>Hello <span className='color-primary fw-bold'>Ann</span>,
-                        Are you ready to be a <span className='color-primary fw-bold'>Gym Rat</span>? We are here to motivate you.</h3>
+                     these workouts are personalized, just for you! </h3>
                 </article>
                 <article>
-
                 </article>
                 {daysWorkouts.map((item) => {
                     return <Workouts item={item} activeTab={activeTab} setActiveTab={setActiveTab} />
 
                 })}
-
-
             </section>
         </>
     )
