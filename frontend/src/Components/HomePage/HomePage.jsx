@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Workouts from './Workouts'
 
 
-const HomePage = () => {
+const HomePage = ({setCurrentSelectedWorkout}) => {
     const [activeTab, setActiveTab] = useState("1")
 
     const daysWorkouts = [
@@ -169,7 +169,7 @@ const HomePage = () => {
                 <article>
                 </article>
                 {daysWorkouts.map((item) => {
-                    return <Workouts item={item} activeTab={activeTab} setActiveTab={setActiveTab} />
+                    return <Workouts setCurrentSelectedWorkout={setCurrentSelectedWorkout} item={item} activeTab={activeTab} setActiveTab={setActiveTab} />
 
                 })}
             </section>

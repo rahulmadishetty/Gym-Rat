@@ -8,7 +8,7 @@
         text-align: center;
     }
 
-    .image{
+    .image {
         background-color: #69A2B0;
         border-radius: 4px 4px 4px 4px;
     }
@@ -75,32 +75,37 @@
     color: gray;
 }
 
-.sign-up,  button {
+.sign-up,
+button {
     color: white;
     border-radius: 8px;
     padding: 0.6em 4em;
 }
 
 
-.card-body{
-    button{
-        background: #69A2B0; 
+.card-body {
+    button {
+        background: #69A2B0;
         border-radius: 8px;
     }
 
-    p{
+    p {
         color: gray;
 
     }
 }
 
-.color-primary{
+.color-primary {
     color: #69A2B0;
 }
 
-.primary-btn{
+.secondary-btn {
+    background: #04395E !important;
+    border-radius: 8px;
 
-        background: #04395E; 
-        border-radius: 8px;
-  
+}
+
+.primary-btn {
+    background: #69A2B0 !important;
+    border-radius: 8px;
 }

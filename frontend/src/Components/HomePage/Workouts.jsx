@@ -1,11 +1,17 @@
 import React from 'react';
 
-const Workouts = ({ item, activeTab, setActiveTab }) => {
+const Workouts = ({ item, activeTab, setActiveTab, setCurrentSelectedWorkout }) => {
     const isItemVisible = activeTab === item.id ? 'toggle show' : '';
 
     const handleOnTabClick = () => {
         setActiveTab(item.id);
     };
+
+    const onHandleCardClick = (item) =>{
+
+        setCurrentSelectedWorkout(item)
+
+    }
 
     return (
         <div>
@@ -33,7 +39,7 @@ const Workouts = ({ item, activeTab, setActiveTab }) => {
                         <div className={`card-body fade ${isItemVisible}`}>
                             <div className="d-flex">
                                 {item.workouts.map((workout) => {
-                                    return (<div className={`card glassy-card ${workout.completed == "true" ? "completed-workout" : ""}  cursor-pointer mb-3 mx-3`}>
+                                    return (<div onClick={()=> onHandleCardClick(workout)} className={`card glassy-card ${workout.completed == "true" ? "completed-workout" : ""}  cursor-pointer mb-3 mx-3`}>
                                         <div className="card-body workout">
                                             <h5 className="card-title fw-bold mb-3">{workout.title}</h5>
                                             <p className="card-text">
