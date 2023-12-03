@@ -75,11 +75,25 @@
     color: gray;
 }
 
-.sign-up button {
-    background: #69A2B0;
+.sign-up,  button {
     color: white;
     border-radius: 8px;
     padding: 0.6em 4em;
 }
 
 
+.card-body{
+    button{
+        background: #69A2B0; 
+        border-radius: 8px;
+    }
+
+    p{
+        color: gray;
+
+    }
+}
+
+.color-primary{
+    color: #69A2B0;
+}
