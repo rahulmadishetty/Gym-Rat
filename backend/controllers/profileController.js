@@ -1,10 +1,11 @@
 const { getDb } = require('../config/database')
 
 
+
 // User profile POST
 exports.postProfileDetails = async (req, res) => {
     try {
-        const { height, age, weight, level, focus, userId } = req.body;
+        const { fName, dName, age, goal, bodyType, userId } = req.body;
         const db = getDb()
         const userExists = await db.collection("user_profile").findOne({ userId });
         
@@ -12,7 +13,7 @@ exports.postProfileDetails = async (req, res) => {
             return res.status(400).json({ error: 'Details already exist' });
 
         } else {
-            await db.collection("user_profile").insertOne({ height, age, weight, level, focus, userId })
+            await db.collection("user_profile").insertOne({ fName, dName, age, goal, bodyType, userId, userId })
         }
 
         res.status(201).json("Details added successfully !!");
@@ -25,14 +26,14 @@ exports.postProfileDetails = async (req, res) => {
 // User Profile GET
 exports.getProfileDetails = async (req, res) => {
     try {
-        const { userId_req } = req.params.userId;
-
+        const { userId } = req.params;
         const db = getDb();
 
         // Find the user by userId
-        const userProfile = await db.collection("user_profile").findOne({ userId_req });
+        const userProfile = await db.collection("user_profile").findOne({ userId });
 
         if (!userProfile) {
+            console.error(e);
             return res.status(401).json({ error: 'Failed to fetch the details' });
         }
         else {
