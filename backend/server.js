@@ -20,8 +20,8 @@ connectToDb(dbUrl, (err) => {
   } else {
     // Set up routes and start the server
     app.use('/auth', authRoutes);
-    app.use('/workouts', workoutsRoutes);
-    app.use('/profile', profileRoutes);
+    app.use('/workouts', authMiddleware, workoutsRoutes);
+    app.use('/profile', authMiddleware, profileRoutes);
     // app.use('/login', loginRouter);
 
     // Protected route (example)
