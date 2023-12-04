@@ -27,7 +27,7 @@ const SignInform = () => {
       localStorage.setItem("userName", data.name)
       login(data.token, data.userId, data.name)
       if (data.profileCheck) {
-        navigate(HOME.INDEX)
+        navigate("/initializing")
       } else {
         navigate(ONBOARDING.INDEX)
       }
