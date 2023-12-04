@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const { getDb } = require('../config/database')
 
 
@@ -8,12 +9,15 @@ exports.postProfileDetails = async (req, res) => {
         const { fName, dName, age, goal, bodyType, userId } = req.body;
         const db = getDb()
         const userExists = await db.collection("user_profile").findOne({ userId });
+        const fetchEmail = await db.collection("user_signup").findOne({ _id: new ObjectId(userId) })
+
+        let email = fetchEmail.email;
         
         if (userExists) {
             return res.status(400).json({ error: 'Details already exist' });
 
         } else {
-            await db.collection("user_profile").insertOne({ fName, dName, age, goal, bodyType, userId, userId })
+            await db.collection("user_profile").insertOne({ fName, dName, age, goal, bodyType, userId, userId, email })
         }
 
         res.status(201).json("Details added successfully !!");
