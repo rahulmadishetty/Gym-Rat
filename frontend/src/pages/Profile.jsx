@@ -3,32 +3,36 @@ import React, { useState, useEffect } from 'react'
 import Header from '../components/Layout/Header'
 
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import axios from 'axios';
+
+import BaseRequest from "../services/requests/Base"
 
 const Profile = () => {
 
     const [userData, setUserData] = useState({
-        name: '',
+        fName: '',
+        dName:"",
         email: '',
         age: '',
         goal: '',
-        bodytype: '',
+        bodyType: '',
     });
+
+    const userId = localStorage.getItem("userId");
 
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/profile/2'); // Replace with your backend endpoint
-                // Assuming the response.data is an array of users and you want to display the first user
+                const response = await BaseRequest.getAuthenticated(`http://localhost:3000/profile/${userId}`)
+                
                 const user = response.data.userProfile;
-                console.log(user);
+                
                 setUserData({
-                    name: user.name,
+                    fName: user.fName,
                     email: user.email,
                     age: user.age,
                     goal: user.goal,
-                    bodytype: user.bodyType,
+                    bodyType: user.bodyType,
+                    dName:user.dName
                 });
             } catch (error) {
                 console.error('Error fetching user data:', error);
@@ -74,19 +78,19 @@ const Profile = () => {
                         <Form className="form">
                             <p>Welcome</p>
                             <Form.Group controlId="formCategory1">
-                                <Form.Label>Diaplay Name</Form.Label>
-                                <Form.Control type="text" defaultValue={userData.name} disabled />
+                                <Form.Label>Full Name</Form.Label>
+                                <Form.Control type="text" defaultValue={userData.fName} disabled />
 
                             </Form.Group>
-                            <Form.Group controlId="formCategory2">
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control type="email" defaultValue={userData.email} disabled />
+                            <Form.Group controlId="formCategory1">
+                                <Form.Label>Display Name</Form.Label>
+                                <Form.Control type="text" defaultValue={userData.dName} disabled />
 
                             </Form.Group>
 
                             <Form.Group controlId="formCategory2">
                                 <Form.Label>Age</Form.Label>
-                                <Form.Control type="number" defaultValue={userData.age} disabled />
+                                <Form.Control type="text" defaultValue={userData.age} disabled />
 
                             </Form.Group>
 
@@ -98,7 +102,7 @@ const Profile = () => {
 
                             <Form.Group controlId="formCategory2">
                                 <Form.Label>Body Type</Form.Label>
-                                <Form.Control type="text" defaultValue={userData.bodytype} disabled />
+                                <Form.Control type="text" defaultValue={userData.bodyType} disabled />
 
                             </Form.Group>
 
