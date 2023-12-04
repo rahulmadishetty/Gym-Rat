@@ -26,14 +26,14 @@ class BaseRequest {
     return axios.post(url, data);
   }
 
-  static postAuthenticated(url, data){
-    console.log(DEFAULT_HEADERS)
-    return axios.post(url, data, DEFAULT_HEADERS)
+  static postAuthenticated(url, data, headers){
+   
+    return axios.post(url, data, headers)
   }
 
-  static getAuthenticated(url){
-    console.log(DEFAULT_HEADERS)
-    return axios.get(url, DEFAULT_HEADERS)
+  static getAuthenticated(url, headers){
+ 
+    return axios.get(url, headers)
   }
 
   static patch(url, data, response) {

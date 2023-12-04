@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 
 import Header from '../tempcomponents/Layout/Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,6 +8,7 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 import BaseRequest from "../services/requests/Base";
 import { BASE_URL } from '../constants/routes';
+import { OnboardingContext } from '../context/Onboarding';
 
 const getAge = (age) => {
     if (age == "below30") {
@@ -45,12 +46,23 @@ const Profile = () => {
         bodyType: '',
     });
 
+    const { token } = useContext(OnboardingContext);
+
     const userId = localStorage.getItem("userId");
+
+    const tokenNew = () => {
+        return token || localStorage.getItem("token")
+    }
 
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await BaseRequest.getAuthenticated(`${BASE_URL}/profile/${userId}`)
+                const response = await BaseRequest.getAuthenticated(`${BASE_URL}/profile/${userId}`, {
+                    headers: {
+                        'Authorization': `${tokenNew()}`,
+                        'Content-Type': 'application/json',
+                    }
+                })
                 const user = response.data.userProfile;
 
                 setUserData({

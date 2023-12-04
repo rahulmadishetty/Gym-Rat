@@ -34,12 +34,21 @@ const BodyTypeTooltip = () => (
 
 
 const FourPage = ({ onButtonClick }) => {
-  const { handleOnChange, onboardingData, userId } = useContext(OnboardingContext);
+  const { handleOnChange, onboardingData, userId, token } = useContext(OnboardingContext);
   const id = localStorage.getItem("userId", userId)
+
+  const tokenNew = () => {
+    return token || localStorage.getItem("token")
+  }
 
   const handleOnSubmit = async () => {
     try {
-      await BaseRequest.postAuthenticated(`${BASE_URL}/profile/create`, { ...onboardingData, userId: id })
+      await BaseRequest.postAuthenticated(`${BASE_URL}/profile/create`, { ...onboardingData, userId: id }, {
+        headers: {
+          'Authorization': `${tokenNew()}`,
+          'Content-Type': 'application/json',
+        },
+      })
 
     } catch (err) {
       console.log(err)
