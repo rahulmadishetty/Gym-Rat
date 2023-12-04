@@ -1,20 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { OnboardingContext } from '../../context/Onboarding';
 
 const BrandingCard = () => {
+
+    const {userName} = useContext(OnboardingContext);
+
+    const name = localStorage.getItem("userName")
+
     const navigate = useNavigate();
     const handleOnClick = () =>{
-     
-
         navigate("/workout")
     }
 
     return (
         <div className='d-flex branding p-5 m-5'>
             <div className='p-3 my-5 mx-3'>
-                <h2>Hello <span className='color-primary my-5 fw-bold'>Ann</span>,
+                <h2>Hello <span className='color-primary my-5 fw-bold'>{userName || name}</span>,
                     Are you ready to be a <span className='color-primary fw-bold'>Gym Rat</span>? We are here to motivate you.</h2>
-                <p className='my-4'>Embrace the challenge, Ann! Transform into a Gym Enthusiast and let every drop of sweat be a testament to your dedication. We're here to inspire and support you on your fitness journey. Remember, every workout brings you closer to your best self. Let's crush those goals together!</p>
+                <p className='my-4'>Embrace the challenge, {userName || name}! Transform into a Gym Enthusiast and let every drop of sweat be a testament to your dedication. We're here to inspire and support you on your fitness journey. Remember, every workout brings you closer to your best self. Let's crush those goals together!</p>
                 <p className='my-2'>We have created a personalized workout planner for you. Are you ready?</p>
                 <button onClick={handleOnClick} className='my-4 primary-btn'>My workout</button>
             </div>

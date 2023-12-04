@@ -82,9 +82,9 @@ const Profile = () => {
                         <Form className="form mt-5">
                             <div className='d-flex justify-content-between align-items-center mb-5'>
                                 <h3 className='color-secondary'>User Profile</h3>
-                                <div className='color-secondary'>
+                                <button className='color-white p-2 primary-btn'>
                                     <FontAwesomeIcon icon={faPenToSquare} /> Edit Profile
-                                </div>
+                                </button>
 
                             </div>
 
