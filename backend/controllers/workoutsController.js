@@ -136,27 +136,36 @@ exports.updateUserWorkouts = async (req, res) => {
       if (!userExists) {
           return res.status(400).json({ error: 'Details not exist' });
       }
-
       const dayIndex = userExists.fiveDayPlan.findIndex(dayPlan =>
         dayPlan.workouts.some(workout => workout.exerciseId == exerciseId)
       );
+
     if (dayIndex === -1) {
       return res.status(400).json({ error: 'Day not found in user plan' });
     }
 
+    const user_workouts =  await db.collection("user_workouts").findOne({userId})
+    const updatedWorkouts = user_workouts.fiveDayPlan[dayIndex].workouts.map(e => {
+      if(e.exerciseId == exerciseId){
+        e.completed = completionflag
+      }
+      return e
+    })
+    console.log(user_workouts, 'hit')
    
-    // Construct the field update string based on the day index
-    const updateField = `fiveDayPlan.${dayIndex}.exercise.completed`;
 
     // Now, update the completed status of the exercise for that day
     const updateResult = await db.collection("user_workouts").updateOne(
-      { userId, [`fiveDayPlan.${dayIndex}.exercise.exerciseId`]: exerciseId },
-      { $set: { [updateField]: completionflag } }
-    );
+      { userId: userId },
+      { $set: { [`fiveDayPlan.${dayIndex}.workouts`]: updatedWorkouts } }
+  );
+
+    // console.log(dayIndex, updateField, updateResult,   'hit');
 
     if (updateResult.matchedCount === 0) {
       return res.status(400).json({ error: 'Exercise not found for the user on the specified day' });
     }
+
 
     res.status(200).json("Exercise completion status updated successfully!");
   } catch (error) {
