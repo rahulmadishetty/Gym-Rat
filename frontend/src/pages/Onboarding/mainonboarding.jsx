@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import "../../App.css";
-import MultiStepProgressBar from './Multistepprogressbar';
+
 import PageOne from './PageOne';
 import PageTwo from './PageTwo';
 import PageThree from './PageThree';
 import PageFour from './PageFour';
 import PageFive from './PageFive';
+import MultiStepProgressBar from './Multistepprogressbar';
 
 const MainOnboarding = () => {
 

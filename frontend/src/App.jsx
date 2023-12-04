@@ -8,10 +8,11 @@ import SignUp from './pages/SignUp';
 import SignIn from "./pages/SignIn";
 import Home from './pages/Home';
 import Profile from './pages/Profile';
-import Onboarding from './pages/Onboarding/mainonboarding'
 import LandingPage from './pages/LandingPage/LandingPage';
+import MainOnboarding from './pages/Onboarding/mainonboarding';
 
 import 'react-tooltip/dist/react-tooltip.css'
+
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Route path={PROFILE.INDEX} element={<Profile />} />
         <Route path={SIGN_UP.INDEX} element={<SignUp />} />
         <Route path={SIGN_IN.INDEX} element={<SignIn />} />
-        <Route path={ONBOARDING.INDEX} element={<Onboarding />} />
+        <Route path={ONBOARDING.INDEX} element={<MainOnboarding />} />
         <Route path={HOME.INDEX} element={<LandingPage />} />
       </Routes>
     </Router>

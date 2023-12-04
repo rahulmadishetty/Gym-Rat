@@ -75,4 +75,4 @@ const MultiStepProgressBar = ({ page, onPageNumberClick }) => {
   </>)
 }
 
-export default MultiStepProgressBar
+export default MultiStepProgressBar;
