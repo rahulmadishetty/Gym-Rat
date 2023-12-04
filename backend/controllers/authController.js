@@ -25,7 +25,7 @@ exports.signup = async (req, res) => {
     // Generate a JWT token for the user
     const token = jwt.sign({ userId: user._id }, key, { expiresIn: '1h' });
 
-    res.status(201).json({ token, userId: user._id });
+    res.status(201).json({ token, userId: user._id, name: name });
   } catch (error) {
     res.status(500).json({ error });
   }
