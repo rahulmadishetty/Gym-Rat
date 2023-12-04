@@ -6,7 +6,7 @@ import shredweight from "./shredweight.png";
 import { OnboardingContext } from '../../context/Onboarding';
 
 
-const PageThree = ({ onButtonClick }) => {
+const ThreePage = ({ onButtonClick }) => {
   const {handleOnChange} = useContext(OnboardingContext);
 
   const [loseweightUser, setLoseweightUser] = useState(false)
@@ -112,4 +112,4 @@ const PageThree = ({ onButtonClick }) => {
   </>)
 }
 
-export default PageThree
+export default ThreePage

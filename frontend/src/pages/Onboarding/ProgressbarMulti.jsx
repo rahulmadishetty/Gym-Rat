@@ -2,7 +2,7 @@ import React from 'react'
 import "./MultiStepProgressBar.css";
 import { ProgressBar, Step } from "react-step-progress-bar";
 
-const MultiStepProgressBar = ({ page, onPageNumberClick }) => {
+const ProgressbarMulti = ({ page, onPageNumberClick }) => {
 
   var stepPercentage = 0;
   if (page === "pageone") {
@@ -75,4 +75,4 @@ const MultiStepProgressBar = ({ page, onPageNumberClick }) => {
   </>)
 }
 
-export default MultiStepProgressBar
+export default ProgressbarMulti;
