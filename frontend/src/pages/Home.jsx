@@ -4,7 +4,7 @@ import Layout from '../components/Layout/Layout'
 
 import WorkoutModal from '../components/HomePage/WorkoutModal'
 import WorkoutSkeleton from '../components/SkeletonLoading/WorkoutSkeleton'
-import HomePage from '../Components/HomePage/HomePage'
+import HomePage from "../components/HomePage/HomePage"
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
