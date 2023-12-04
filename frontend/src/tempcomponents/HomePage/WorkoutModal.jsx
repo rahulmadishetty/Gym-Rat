@@ -59,7 +59,7 @@ const WorkoutModal = ({ isModalOpen, setIsModalOpen, currentSelectedWorkout, set
         <strong>Muscle Targeted:</strong> {target}<br />
         <strong>Time:</strong> {duration}
       </p>
-      <iframe className="mb-3 mt-2" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      <iframe className="mb-3 mt-2" src={currentSelectedWorkout.video} title="YouTube video player" frameborder="0" allowfullscreen></iframe>
       <button onClick={handleOnComplete} className="btn my-2 primary-btn">Completed</button>
     </Modal>
   )
