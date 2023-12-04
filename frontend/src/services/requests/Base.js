@@ -4,6 +4,8 @@ const token = () => {
   return localStorage.getItem("token")
 }
 
+console.log(token(), "token")
+
 export const DEFAULT_HEADERS = {
   headers: {
     'Authorization': `${token()}`,
@@ -25,10 +27,12 @@ class BaseRequest {
   }
 
   static postAuthenticated(url, data){
+    console.log(DEFAULT_HEADERS)
     return axios.post(url, data, DEFAULT_HEADERS)
   }
 
   static getAuthenticated(url){
+    console.log(DEFAULT_HEADERS)
     return axios.get(url, DEFAULT_HEADERS)
   }
 
