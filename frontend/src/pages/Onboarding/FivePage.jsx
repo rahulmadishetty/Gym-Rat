@@ -4,7 +4,7 @@ import tick from "./tick.png";
 import BaseRequest from '../../services/requests/Base';
 import { BASE_URL, HOME } from '../../constants/routes';
 
-const PageFive = () => {
+const FivePage = () => {
 
   const navigate = useNavigate();
   const handleSubmit =(formData) =>{
@@ -45,4 +45,4 @@ const PageFive = () => {
   </>)
 }
 
-export default PageFive
+export default FivePage

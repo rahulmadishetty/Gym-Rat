@@ -9,10 +9,9 @@ import SignIn from "./pages/SignIn";
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import LandingPage from './pages/LandingPage/LandingPage';
-import MainOnboarding from './pages/Onboarding/mainonboarding';
+import OnboardingMain from './pages/Onboarding/OnboardingMain';
 
 import 'react-tooltip/dist/react-tooltip.css'
-
 
 function App() {
   return (
@@ -23,7 +22,7 @@ function App() {
         <Route path={PROFILE.INDEX} element={<Profile />} />
         <Route path={SIGN_UP.INDEX} element={<SignUp />} />
         <Route path={SIGN_IN.INDEX} element={<SignIn />} />
-        <Route path={ONBOARDING.INDEX} element={<MainOnboarding />} />
+        <Route path={ONBOARDING.INDEX} element={<OnboardingMain />} />
         <Route path={HOME.INDEX} element={<LandingPage />} />
       </Routes>
     </Router>

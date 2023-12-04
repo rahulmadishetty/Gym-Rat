@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import "./PageOne.css";
 import { OnboardingContext } from '../../context/Onboarding';
 
-const PageOne = ({ onButtonClick}) => {
+const OnePage = ({ onButtonClick}) => {
   const {handleOnChange} = useContext(OnboardingContext);
 
   return(
@@ -79,4 +79,4 @@ const PageOne = ({ onButtonClick}) => {
   </>)
 }
 
-export default PageOne
+export default OnePage;
