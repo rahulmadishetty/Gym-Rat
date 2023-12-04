@@ -7,6 +7,7 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 import BaseRequest from "../services/requests/Base";
+import { BASE_URL } from '../constants/routes';
 
 const getAge = (age) => {
     if (age == "below30") {
@@ -49,7 +50,7 @@ const Profile = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await BaseRequest.getAuthenticated(`http://localhost:3000/profile/${userId}`)
+                const response = await BaseRequest.getAuthenticated(`${BASE_URL}/profile/${userId}`)
                 const user = response.data.userProfile;
 
                 setUserData({

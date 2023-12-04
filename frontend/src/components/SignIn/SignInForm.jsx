@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Form } from 'react-final-form';
 
-import { ONBOARDING, SIGN_UP } from '../../constants/routes'
+import { BASE_URL, HOME, ONBOARDING, SIGN_UP } from '../../constants/routes'
 import InputField from '../Input/InputField';
 import { composeValidators, required, validateEmail } from '../../utils/validations';
 import BaseRequest from '../../services/requests/Base';
@@ -14,8 +14,16 @@ const SignInform = () => {
   
   const handleSubmit = async (formData) => {
     try {
-      await BaseRequest.post("http://localhost:3000/auth/login", formData)
+    const {data} =  await BaseRequest.post(`${BASE_URL}/auth/login`, formData)
+
+    console.log(data)
+    if(data.profileCheck){
+      navigate(HOME.INDEX)
+    } else {
       navigate(ONBOARDING.INDEX)
+    }
+
+    
 
     } catch (err) {
       setErrorMessage(true)
