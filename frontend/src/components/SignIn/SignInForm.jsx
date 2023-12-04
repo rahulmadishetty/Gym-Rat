@@ -25,7 +25,7 @@ const SignInform = () => {
 
   return (
     <div>
-      <h2 className='m-3'> Sign In</h2>
+      <h2 className='m-3 color-black'> Sign In</h2>
       <p>Lets start your wonderful journey with fitness!</p>
       <Form
         onSubmit={handleSubmit}

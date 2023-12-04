@@ -39,6 +39,7 @@ const MainOnboarding = () => {
 
   return (<>
     <div className='App'>
+      <div className='mt-5'>
       <MultiStepProgressBar page={page} onPageNumberClick={nextPageNumber} />
       {
         {
@@ -49,6 +50,8 @@ const MainOnboarding = () => {
           pagefive: <PageFive onButtonClick={nextpage} />
         }[page]
       }
+      </div>
+   
     </div>
   </>)
 }
