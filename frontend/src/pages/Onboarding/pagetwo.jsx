@@ -59,7 +59,7 @@ const PageTwo = ({ onButtonClick }) => {
           <h1 className="f4 pl2 pr2">Age: 30-39</h1>
         </div>
 
-        <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
+        <div data-id="age" className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
           // onClick={() => onButtonClick("pagethree")}
           onClick={(e)=> {

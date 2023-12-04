@@ -39,6 +39,7 @@ const PageFive = () => {
         style={{ borderStyle: "none", width: "100%", backgroundColor: '#69A2B0', marginTop: "55px" }}
         type="submit"
         value="Home Page"
+        data-id="submit-data"
         onClick={handleSubmit}
       />
     </div>

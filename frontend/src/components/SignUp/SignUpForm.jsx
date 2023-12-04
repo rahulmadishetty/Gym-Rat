@@ -49,9 +49,10 @@ const SignUpform = () => {
         }}
         render={({ handleSubmit, submitting, values, form }) => (
           <form onSubmit={event => handleSubmit(event, form)} className='d-flex flex-column align-items-center'>
-            <InputField name="name" label="Name" placeholder="Name*" validate={required} type="text" />
-            <InputField name="email" label="Email" placeholder="Email*" validate={composeValidators(required, validateEmail)} type="text" />
+            <InputField dataId="name" name="name" label="Name" placeholder="Name*" validate={required} type="text" />
+            <InputField dataId="email" name="email" label="Email" placeholder="Email*" validate={composeValidators(required, validateEmail)} type="text" />
             <InputField
+              dataId="password"
               name="password"
               label="Password"
               placeholder="Password*"
@@ -59,6 +60,7 @@ const SignUpform = () => {
               type="password"
             />
             <InputField
+              dataId="confirmation"
               name="password_confirmation"
               label="Password Confirmation"
               placeholder="Password Confirmation*"
@@ -66,7 +68,7 @@ const SignUpform = () => {
               type="password"
             />
             <div className="my-4">
-              <button type="submit" disabled={submitting}>
+              <button data-id="sign-up" type="submit" disabled={submitting}>
                 Sign Up
               </button>
             </div>
