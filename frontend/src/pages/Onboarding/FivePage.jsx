@@ -10,7 +10,7 @@ const FivePage = () => {
   const handleSubmit =(formData) =>{
     try{
       BaseRequest.postAuthenticated(`${BASE_URL}/profile/create`, formData);
-      navigate(HOME.INDEX);
+      navigate("/initializing");
     }
     catch{
       console.log(err)

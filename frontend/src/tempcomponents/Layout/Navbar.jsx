@@ -3,9 +3,10 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 import { HOME, PROFILE, SIGN_IN, MY_WORKOUTS } from '../../constants/routes';
 
-const Navbar = ({isSetupCompleted}) => {
+const Navbar = () => {
     const navigate = useNavigate();
     const handleLogout = () =>{
+        localStorage.clear()
         navigate(SIGN_IN.INDEX)
     };
 
