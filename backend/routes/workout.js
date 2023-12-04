@@ -6,6 +6,9 @@ const workoutsController = require('../controllers/workoutsController');
 router.post('/generate-plan', workoutsController.generateWorkoutPlan);
 
 // Get all workouts
-//router.get('/', workoutsController.getAllWorkouts);
+router.get('/user-workouts/:userId', workoutsController.getUserWorkouts);
+
+//update completion status of the workouts for each user 
+router.post('/update-user-workouts', workoutsController.updateUserWorkouts);
 
 module.exports = router;
