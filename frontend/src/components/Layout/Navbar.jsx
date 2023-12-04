@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 import { HOME, PROFILE, SIGN_IN, MY_WORKOUTS } from '../../constants/routes';
 
-const Navbar = () => {
+const Navbar = ({isSetupCompleted}) => {
     const navigate = useNavigate();
     const handleLogout = () =>{
         navigate(SIGN_IN.INDEX)
@@ -22,7 +22,7 @@ const Navbar = () => {
                     Profile
                 </NavLink>
             </div>
-            <div className='p-2 m-3 cursor-pointer' onClick={handleLogout}>
+            <div className='p-2 m-3 cursor-pointer color-white' onClick={handleLogout}>
                 Logout
             </div>
         </section>
