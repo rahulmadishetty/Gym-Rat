@@ -6,7 +6,7 @@ import Age3 from "./Age3.png";
 import Age4 from "./Age4.png";
 import { OnboardingContext } from '../../context/Onboarding';
 
-const PageTwo = ({ onButtonClick }) => {
+const TwoPage = ({ onButtonClick }) => {
   const {handleOnChange} = useContext(OnboardingContext);
 
   return(
@@ -98,4 +98,4 @@ const PageTwo = ({ onButtonClick }) => {
   </>)
 }
 
-export default PageTwo
+export default TwoPage

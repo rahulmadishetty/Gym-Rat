@@ -33,7 +33,7 @@ const BodyTypeTooltip = () => (
 );
 
 
-const PageFour = ({ onButtonClick }) => {
+const FourPage = ({ onButtonClick }) => {
   const { handleOnChange, onboardingData, userId } = useContext(OnboardingContext);
   const id = localStorage.getItem("userId", userId)
 
@@ -124,4 +124,4 @@ const PageFour = ({ onButtonClick }) => {
     </>)
 }
 
-export default PageFour
+export default FourPage

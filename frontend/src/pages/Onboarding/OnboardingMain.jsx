@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import "../../App.css";
 
-import PageOne from './PageOne';
-import PageTwo from './PageTwo';
-import PageThree from './PageThree';
-import PageFour from './PageFour';
-import PageFive from './PageFive';
 import MultiStepProgressBar from './Multistepprogressbar';
+import OnePage from './OnePage';
+import TwoPage from './TwoPage';
+import ThreePage from './ThreePage';
+import FourPage from './FourPage';
+import FivePage from './FivePage';
 
-const MainOnboarding = () => {
+const OnboardingMain = () => {
 
   const [page, setPage] = useState("pageone");
 
@@ -44,11 +44,11 @@ const MainOnboarding = () => {
       <MultiStepProgressBar page={page} onPageNumberClick={nextPageNumber} />
       {
         {
-          pageone: <PageOne onButtonClick={nextpage} />,
-          pagetwo: <PageTwo onButtonClick={nextpage} />,
-          pagethree: <PageThree onButtonClick={nextpage} />,
-          pagefour: <PageFour onButtonClick={nextpage} />,
-          pagefive: <PageFive onButtonClick={nextpage} />
+          pageone: <OnePage onButtonClick={nextpage} />,
+          pagetwo: <TwoPage onButtonClick={nextpage} />,
+          pagethree: <ThreePage onButtonClick={nextpage} />,
+          pagefour: <FourPage onButtonClick={nextpage} />,
+          pagefive: <FivePage onButtonClick={nextpage} />
         }[page]
       }
       </div>
@@ -57,4 +57,4 @@ const MainOnboarding = () => {
   </>)
 }
 
-export default MainOnboarding
+export default OnboardingMain;
