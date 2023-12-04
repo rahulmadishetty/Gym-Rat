@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
-import Layout from '../components/Layout/Layout'
+import Layout from '../tempcomponents/Layout/Layout'
 
-import WorkoutModal from '../components/HomePage/WorkoutModal'
-import WorkoutSkeleton from '../components/SkeletonLoading/WorkoutSkeleton'
-import HomePage from '../Components/HomePage/HomePage'
+import WorkoutModal from '../tempcomponents/HomePage/WorkoutModal'
+import WorkoutSkeleton from '../tempcomponents/SkeletonLoading/WorkoutSkeleton'
+import HomePage from "../tempcomponents/HomePage/HomePage"
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

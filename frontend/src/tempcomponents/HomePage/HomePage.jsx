@@ -158,6 +158,7 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
         },
     ]
 
+
     if (isLoading) return null;
 
     return (
