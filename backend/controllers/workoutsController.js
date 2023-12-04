@@ -3,6 +3,7 @@ const { getDb } = require('../config/database')
 const { ObjectId } = require('mongodb');
 const { json } = require('body-parser');
 
+
 // Generate a 5-day workout plan
 exports.generateWorkoutPlan = async (req, res) => {
   try {
@@ -22,28 +23,42 @@ exports.generateWorkoutPlan = async (req, res) => {
       if (!workoutDocument || !Array.isArray(workoutDocument.exercises)) {
         return res.status(404).json({ error: 'Workout plan not found or has an invalid structure' });
       }
-  
-      const allExercises = workoutDocument.exercises;
+    
+    const allExercises = workoutDocument.exercises;
   
   
       let fiveDayPlan = [];
-      const muscleGroups = ['Chest', 'Back', 'Legs', 'Shoulders', 'Arms'];
-  
-      muscleGroups.forEach((group, index) => {
-        const exercisesForGroup = allExercises.filter(exercise => exercise.target === group);
-        let numExercises = determineExerciseCount(reqObj.goal, reqObj.age, reqObj.bodyType);
-  
-        for (let i = 0; i < numExercises; i++) {
-          if (exercisesForGroup.length > i) {
-            const selectedExercise = exercisesForGroup[i];
-            fiveDayPlan.push({
-              day: `Day ${index + 1}`,
-              muscleGroup: group,
-              exercise: selectedExercise
-            });
-          }
-        }
+    const muscleGroups = ['Chest', 'Back', 'Legs', 'Shoulders', 'Arms'];
+
+    muscleGroups.forEach((group, index) => {
+      const exercisesForGroup = allExercises.filter(exercise => exercise.target === group);
+      let numExercises = determineExerciseCount(reqObj.goal, reqObj.age, reqObj.bodyType);
+    
+      // Initialize the day plan with an empty workouts array
+      fiveDayPlan.push({
+        day: `Day ${index + 1}`,
+        muscleGroup: group,
+        workouts: []
       });
+    
+      for (let i = 0; i < numExercises; i++) {
+        if (exercisesForGroup.length > i) {
+          const selectedExercise = exercisesForGroup[i];
+          // Correctly access the workouts array of the specific day's plan
+          console.log(selectedExercise);
+          fiveDayPlan[index].workouts.push({
+            title: selectedExercise.title,
+            reps: selectedExercise.reps,
+            image: selectedExercise.image,
+            duration: selectedExercise.duration,
+            completed: false,
+            target: selectedExercise.target,
+            video: selectedExercise.video,
+            exerciseId: selectedExercise.exerciseId
+          });
+        }
+      }
+    });
       await db.collection("user_workouts").insertOne({ userId, fiveDayPlan })
   
       const generatedWorkouts = await db.collection("user_workouts").findOne({ userId: userId });
@@ -63,40 +78,32 @@ exports.generateWorkoutPlan = async (req, res) => {
 
 function determineExerciseCount(goal, age, bodyType) {
   // Convert age to an age group
-  let ageGroup;
-  if (age >= 18 && age <= 20) {
-    ageGroup = '18-20';
-  } else if (age <= 30) {
-    ageGroup = '21-30';
-  } else if (age <= 45) {
-    ageGroup = '31-45';
-  } else {
-    ageGroup = '46-70';
-  }
+  let ageGroup = age;
+  console.log(ageGroup);
+ // Base number of exercises on the goal
+ let baseExercises = goal === 'Lose Weight' ? 1 : goal === 'Gain Muscle' ? 2 : 3;
 
-  // Base number of exercises on the goal
-  let baseExercises = goal === 'Lose Weight' ? 1 : goal === 'Gain Muscle' ? 2 : 3;
+ // Modify based on age group and body type
+ switch (ageGroup) {
+   case 'below30':
+     // Younger individuals may have more capacity for intense workouts
+     baseExercises += bodyType === 'Ectomorph' ? 1 : bodyType === 'Mesomorph' ? 2 : 0;
+     break;
+   case 'below40':
+     // Still in a good age range for physical activity, adjust based on body type
+     baseExercises += bodyType === 'Mesomorph' ? 1 : bodyType === 'Endomorph' ? -1 : 0;
+     break;
+   case 'below50':
+     // Consider reducing intensity for endomorphs, maintain for others
+     baseExercises += bodyType === 'Endomorph' ? -1 : 0;
+     break;
+   case '50+':
+     // Reduce intensity for older age group
+     baseExercises = Math.max(1, baseExercises - 1);
+     break;
+ }
 
-  // Modify based on age group and body type
-  switch (ageGroup) {
-    case '18-20':
-      baseExercises += bodyType === 'Ectomorph' ? 1 : 0;
-      break;
-    case '21-30':
-      // In the prime age for physical activity, we can add more intensity
-      baseExercises += bodyType === 'Mesomorph' ? 1 : 0;
-      break;
-    case '31-45':
-      // Consider a moderate increase for Mesomorphs
-      baseExercises += bodyType === 'Mesomorph' ? 1 : 0;
-      break;
-    case '46-70':
-      // Reduce intensity for older age group
-      baseExercises = Math.max(1, baseExercises - 1);
-      break;
-  }
-
-  return baseExercises;
+ return baseExercises;
 }
 
 
