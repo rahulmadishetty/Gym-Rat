@@ -16,7 +16,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/premium-vector/women-doing-workout-with-squat-posture-woman-get-perfect-butt-legs-with-exercise_667085-357.jpg",
                     duration: "10 mins",
                     completed: "true",
-                    target: "Legs"
+                    target: "Legs",
+                    video: "https://www.youtube.com/embed/YaXPRqUwItQ?si=OnrXG6YKoJUJxUvK"
                 },
                 {
                     title: "Push ups",
@@ -24,7 +25,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/free-vector/woman-practicing-yoga-mat_1308-125021.jpg?size=626&ext=jpg&ga=GA1.1.1945215744.1701560382&semt=ais",
                     duration: "15 mins",
                     completed: "false",
-                    target: "Arms"
+                    target: "Arms",
+                    video: "https://www.youtube.com/embed/GZbfZ033f74?si=dkVkVJ-vgD8e6Ewd"
                 },
                 {
                     title: "Dead Lift",
@@ -32,7 +34,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/free-vector/woman-lifting-weight-gym-scene_603843-3612.jpg?size=626&ext=jpg&ga=GA1.1.1945215744.1701560382&semt=ais",
                     duration: "9 mins",
                     completed: "false",
-                    target: "Chest"
+                    target: "Chest",
+                    video: "https://www.youtube.com/embed/d_KZxkY_0cM?si=JHC29ymoIR0AUZ54"
                 }
             ]
         },
@@ -46,7 +49,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/premium-vector/women-doing-workout-with-squat-posture-woman-get-perfect-butt-legs-with-exercise_667085-357.jpg",
                     duration: "10 mins",
                     completed: "true",
-                    target: "Legs"
+                    target: "Legs",
+                    video: "https://www.youtube.com/embed/YaXPRqUwItQ?si=OnrXG6YKoJUJxUvK"
                 },
                 {
                     title: "Push ups",
@@ -54,7 +58,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/free-vector/woman-practicing-yoga-mat_1308-125021.jpg?size=626&ext=jpg&ga=GA1.1.1945215744.1701560382&semt=ais",
                     duration: "15 mins",
                     completed: "false",
-                    target: "Arms"
+                    target: "Arms",
+                    video: "https://www.youtube.com/embed/GZbfZ033f74?si=dkVkVJ-vgD8e6Ewd"
                 },
                 {
                     title: "Dead Lift",
@@ -62,7 +67,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/free-vector/woman-lifting-weight-gym-scene_603843-3612.jpg?size=626&ext=jpg&ga=GA1.1.1945215744.1701560382&semt=ais",
                     duration: "9 mins",
                     completed: "false",
-                    target: "Chest"
+                    target: "Chest",
+                    video: "https://www.youtube.com/embed/d_KZxkY_0cM?si=JHC29ymoIR0AUZ54"
                 }
             ]
         },
@@ -76,7 +82,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/premium-vector/women-doing-workout-with-squat-posture-woman-get-perfect-butt-legs-with-exercise_667085-357.jpg",
                     duration: "10 mins",
                     completed: "true",
-                    target: "Legs"
+                    target: "Legs",
+                    video: "https://www.youtube.com/embed/YaXPRqUwItQ?si=OnrXG6YKoJUJxUvK"
                 },
                 {
                     title: "Push ups",
@@ -84,7 +91,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/free-vector/woman-practicing-yoga-mat_1308-125021.jpg?size=626&ext=jpg&ga=GA1.1.1945215744.1701560382&semt=ais",
                     duration: "15 mins",
                     completed: "false",
-                    target: "Arms"
+                    target: "Arms",
+                    video: "https://www.youtube.com/embed/GZbfZ033f74?si=dkVkVJ-vgD8e6Ewd"
                 },
                 {
                     title: "Dead Lift",
@@ -92,7 +100,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/free-vector/woman-lifting-weight-gym-scene_603843-3612.jpg?size=626&ext=jpg&ga=GA1.1.1945215744.1701560382&semt=ais",
                     duration: "9 mins",
                     completed: "false",
-                    target: "Chest"
+                    target: "Chest",
+                    video: "https://www.youtube.com/embed/d_KZxkY_0cM?si=JHC29ymoIR0AUZ54"
                 }
             ]
         },
@@ -106,7 +115,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/premium-vector/women-doing-workout-with-squat-posture-woman-get-perfect-butt-legs-with-exercise_667085-357.jpg",
                     duration: "10 mins",
                     completed: "true",
-                    target: "Legs"
+                    target: "Legs",
+                    video: "https://www.youtube.com/embed/YaXPRqUwItQ?si=OnrXG6YKoJUJxUvK"
                 },
                 {
                     title: "Push ups",
@@ -114,7 +124,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/free-vector/woman-practicing-yoga-mat_1308-125021.jpg?size=626&ext=jpg&ga=GA1.1.1945215744.1701560382&semt=ais",
                     duration: "15 mins",
                     completed: "false",
-                    target: "Arms"
+                    target: "Arms",
+                    video: "https://www.youtube.com/embed/GZbfZ033f74?si=dkVkVJ-vgD8e6Ewd"
                 },
                 {
                     title: "Dead Lift",
@@ -122,7 +133,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/free-vector/woman-lifting-weight-gym-scene_603843-3612.jpg?size=626&ext=jpg&ga=GA1.1.1945215744.1701560382&semt=ais",
                     duration: "9 mins",
                     completed: "false",
-                    target: "Chest"
+                    target: "Chest",
+                    video: "https://www.youtube.com/embed/d_KZxkY_0cM?si=JHC29ymoIR0AUZ54"
                 }
             ]
         },
@@ -136,7 +148,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/premium-vector/women-doing-workout-with-squat-posture-woman-get-perfect-butt-legs-with-exercise_667085-357.jpg",
                     duration: "10 mins",
                     completed: "true",
-                    target: "Legs"
+                    target: "Legs",
+                    video: "https://www.youtube.com/embed/YaXPRqUwItQ?si=OnrXG6YKoJUJxUvK"
                 },
                 {
                     title: "Push ups",
@@ -144,7 +157,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/free-vector/woman-practicing-yoga-mat_1308-125021.jpg?size=626&ext=jpg&ga=GA1.1.1945215744.1701560382&semt=ais",
                     duration: "15 mins",
                     completed: "false",
-                    target: "Arms"
+                    target: "Arms",
+                    video: "https://www.youtube.com/embed/GZbfZ033f74?si=dkVkVJ-vgD8e6Ewd"
                 },
                 {
                     title: "Dead Lift",
@@ -152,7 +166,8 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                     image: "https://img.freepik.com/free-vector/woman-lifting-weight-gym-scene_603843-3612.jpg?size=626&ext=jpg&ga=GA1.1.1945215744.1701560382&semt=ais",
                     duration: "9 mins",
                     completed: "false",
-                    target: "Chest"
+                    target: "Chest",
+                    video: "https://www.youtube.com/embed/d_KZxkY_0cM?si=JHC29ymoIR0AUZ54"
                 }
             ]
         },
