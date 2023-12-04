@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./PageThree.css";
 import loseweight from "./loseweight.png";
 import gainweight from "./gainweight.png";
 import shredweight from "./shredweight.png";
+import { OnboardingContext } from '../../context/Onboarding';
 
 
 const PageThree = ({ onButtonClick }) => {
+  const {handleOnChange} = useContext(OnboardingContext);
 
   const [loseweightUser, setLoseweightUser] = useState(false)
 
@@ -41,7 +43,11 @@ const PageThree = ({ onButtonClick }) => {
       >
         <div className="mw5 mx-2 my-3 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
-          onClick={() => onButtonClick("pagefour")}
+          // onClick={() => onButtonClick("pagefour")}
+          onClick={(e)=> {
+            handleOnChange("goal", "loseweight");     
+            onButtonClick("pagefour")
+          }}
         >
           <img
             src={loseweight}
@@ -55,7 +61,11 @@ const PageThree = ({ onButtonClick }) => {
 
         <div className="mw5 mx-2 my-3 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
-          onClick={() => onButtonClick("pagefour")}
+          // onClick={() => onButtonClick("pagefour")}
+          onClick={(e)=> {
+            handleOnChange("goal", "gainmuscle");     
+            onButtonClick("pagefour")
+          }}
         >
           <img
             src={gainweight}
@@ -69,7 +79,11 @@ const PageThree = ({ onButtonClick }) => {
 
         <div className="mw5 mx-2 my-3 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
-          onClick={() => onButtonClick("pagefour")}
+          // onClick={() => onButtonClick("pagefour")}
+          onClick={(e)=> {
+            handleOnChange("goal", "getshredded");     
+            onButtonClick("pagefour")
+          }}
         >
           <img
             src={shredweight}

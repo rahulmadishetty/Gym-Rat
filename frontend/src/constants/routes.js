@@ -18,5 +18,8 @@ const ONBOARDING = {
     INDEX : "/onboarding"
 }
 
+const MY_WORKOUTS = {
+    INDEX : "/workout"
+}
 
-export { HOME, SIGN_UP, SIGN_IN, PROFILE, ONBOARDING };
+export { HOME, SIGN_UP, SIGN_IN, PROFILE, ONBOARDING, MY_WORKOUTS };

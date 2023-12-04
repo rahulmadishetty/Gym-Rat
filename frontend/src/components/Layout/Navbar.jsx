@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-import { HOME, PROFILE, SIGN_IN, ONBOARDING } from '../../constants/routes';
+import { HOME, PROFILE, SIGN_IN, MY_WORKOUTS } from '../../constants/routes';
 
-const Navbar = () => {
+const Navbar = ({isSetupCompleted}) => {
     const navigate = useNavigate();
     const handleLogout = () =>{
         navigate(SIGN_IN.INDEX)
@@ -15,14 +15,14 @@ const Navbar = () => {
                 <NavLink to={HOME.INDEX}>
                     Home
                 </NavLink>
-                <NavLink to={ONBOARDING.INDEX}>
-                    Onboarding
+                <NavLink to={MY_WORKOUTS.INDEX}>
+                    Workouts
                 </NavLink>
                 <NavLink to={PROFILE.INDEX}>
                     Profile
                 </NavLink>
             </div>
-            <div className='p-2 m-3 cursor-pointer' onClick={handleLogout}>
+            <div className='p-2 m-3 cursor-pointer color-white' onClick={handleLogout}>
                 Logout
             </div>
         </section>

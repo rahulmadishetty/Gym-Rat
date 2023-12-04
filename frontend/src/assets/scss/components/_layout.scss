@@ -1,12 +1,12 @@
 .navbar {
     overflow: hidden;
-    border-right: 1px solid gray;
+    border-right: 1px solid #310A31;
   }
   
   .navbar a {
     float: left;
     display: block;
-    color: black;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -15,14 +15,30 @@
   }
   
   .navbar a.active {
-    border-bottom: 2px solid #d48f0f;
+    border-bottom: 2px solid #310A31;
   }
   
 
   .header{
-    background-color: #FFEAC2;
+    background-color: #69A2B0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #ddd;
   }
 
   .logo{
     font-family: fantasy;
+    height: 20px;
+    width: 20px;
   }
+
+  .footer {
+    width: 100%;
+    color: gray;
+    background-color: #f8f9fa;
+    padding: 10px;
+    z-index: 100;
+  }
+  

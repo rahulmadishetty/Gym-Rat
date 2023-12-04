@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./PageTwo.css";
 import Age1 from "./Age1.png";
 import Age2 from "./Age2.png";
 import Age3 from "./Age3.png";
 import Age4 from "./Age4.png";
+import { OnboardingContext } from '../../context/Onboarding';
 
 const PageTwo = ({ onButtonClick }) => {
+  const {handleOnChange} = useContext(OnboardingContext);
+
   return(
   <>
     <main
@@ -22,7 +25,11 @@ const PageTwo = ({ onButtonClick }) => {
       >
         <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
-          onClick={() => onButtonClick("pagethree")}
+          // onClick={() => onButtonClick("pagethree")}
+          onClick={(e)=> {
+            handleOnChange("age", "below30");
+            onButtonClick("pagethree")
+          }}
         >
           <img
             src={Age1}
@@ -36,7 +43,11 @@ const PageTwo = ({ onButtonClick }) => {
 
         <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
-          onClick={() => onButtonClick("pagethree")}
+          // onClick={() => onButtonClick("pagethree")}
+          onClick={(e)=> {
+            handleOnChange("age", "below40");
+            onButtonClick("pagethree")
+          }}
         >
           <img
             src={Age2}
@@ -50,7 +61,11 @@ const PageTwo = ({ onButtonClick }) => {
 
         <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
-          onClick={() => onButtonClick("pagethree")}
+          // onClick={() => onButtonClick("pagethree")}
+          onClick={(e)=> {
+            handleOnChange("age", "below50");
+            onButtonClick("pagethree")
+          }}
         >
           <img
             src={Age3}
@@ -63,7 +78,11 @@ const PageTwo = ({ onButtonClick }) => {
         </div>
         <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
           
-          onClick={() => onButtonClick("pagethree")}
+          // onClick={() => onButtonClick("pagethree")}
+          onClick={(e)=> {
+            handleOnChange("age", "above50");
+            onButtonClick("pagethree")
+          }}
         >
           <img
             src={Age4}
