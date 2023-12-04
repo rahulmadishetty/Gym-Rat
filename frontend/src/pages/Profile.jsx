@@ -74,6 +74,8 @@ const Profile = () => {
                     <Col>
                     </Col>
                     <Col>
+                    <br></br>
+                    <br></br>
                         <h1>User Profile</h1>
                         <Form className="form">
                             <p>Welcome</p>

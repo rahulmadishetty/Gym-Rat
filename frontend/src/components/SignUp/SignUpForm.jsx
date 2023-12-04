@@ -11,13 +11,13 @@ import { OnboardingContext } from '../../context/Onboarding';
 const SignUpform = () => {
   const [isAlertVisible, setIsAlertVisible] = useState(false)
   const navigate = useNavigate();
-  const {login} = useContext(OnboardingContext)
+  const { login } = useContext(OnboardingContext)
 
   const handleSubmit = async (formData, form) => {
     try {
       delete formData.password_confirmation;
-   const {data} =  await BaseRequest.post("http://localhost:3000/auth/signup", formData)
-     login(data.token, data.userId)
+      const { data } = await BaseRequest.post("http://localhost:3000/auth/signup", formData)
+      login(data.token, data.userId)
       setIsAlertVisible(true)
       navigate(ONBOARDING.INDEX)
       form.reset()
@@ -34,7 +34,7 @@ const SignUpform = () => {
 
   return (
     <div>
-      <h2 className='m-3'> Sign Up</h2>
+      <h2 className='m-3 color-black'> Sign Up</h2>
       <p>Lets start your wonderful journey with fitness!</p>
       <div class={`alert alert-success mx-2 ${isAlertVisible ? "" : "d-none"}`} role="alert">
         Account created successfully. Please login!
