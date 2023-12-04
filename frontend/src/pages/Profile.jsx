@@ -95,18 +95,18 @@ const Profile = () => {
 
                             <Form.Group controlId="formCategory1">
                                 <Form.Label>Full Name</Form.Label>
-                                <Form.Control type="text" className="color-gray mb-3" defaultValue={userData.fName} disabled />
+                                <Form.Control type="text" className="color-gray mb-3" defaultValue={userData.fName} disabled={!buttonsVisible} />
 
                             </Form.Group>
                             <Form.Group controlId="formCategory2">
                                 <Form.Label>Display Name</Form.Label>
-                                <Form.Control className="color-gray mb-3" type="text" defaultValue={userData.dName} disabled />
+                                <Form.Control className="color-gray mb-3" type="text" defaultValue={userData.dName} disabled={!buttonsVisible} />
 
                             </Form.Group>
 
                             <Form.Group controlId="formCategory3">
                                 <Form.Label>Age</Form.Label>
-                                <Form.Control type="text" className="color-gray mb-3" defaultValue={userData.age} disabled />
+                                <Form.Control type="text" className="color-gray mb-3" defaultValue={userData.age} disabled={!buttonsVisible} />
 
                                 <Form.Select aria-label="Default select example">
                                     <option>{userData.age}</option>
@@ -119,7 +119,7 @@ const Profile = () => {
 
                             <Form.Group controlId="formCategory4">
                                 <Form.Label>Goal</Form.Label>
-                                <Form.Control type="text" className="color-gray mb-3" defaultValue={userData.goal} disabled />
+                                <Form.Control type="text" className="color-gray mb-3" defaultValue={userData.goal} disabled={!buttonsVisible} />
 
                                 <Form.Select aria-label="Default select example">
                                     <option>{userData.goal}</option>
@@ -131,7 +131,7 @@ const Profile = () => {
 
                             <Form.Group controlId="formCategory5">
                                 <Form.Label>Body Type</Form.Label>
-                                <Form.Control type="text" className="color-gray mb-3" defaultValue={userData.bodyType} disabled />
+                                <Form.Control type="text" className="color-gray mb-3" defaultValue={userData.bodyType} disabled={!buttonsVisible} />
 
                                 <Form.Select aria-label="Default select example">
                                     <option>{userData.bodyType}</option>
