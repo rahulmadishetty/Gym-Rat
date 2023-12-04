@@ -137,7 +137,9 @@ exports.updateUserWorkouts = async (req, res) => {
           return res.status(400).json({ error: 'Details not exist' });
       }
 
-    const dayIndex = userExists.fiveDayPlan.findIndex(dayPlan => dayPlan.exercise.exerciseId == exerciseId);
+      const dayIndex = userExists.fiveDayPlan.findIndex(dayPlan =>
+        dayPlan.workouts.some(workout => workout.exerciseId == exerciseId)
+      );
     if (dayIndex === -1) {
       return res.status(400).json({ error: 'Day not found in user plan' });
     }
