@@ -1,10 +1,46 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import Workouts from './Workouts'
 import { OnboardingContext } from '../../context/Onboarding';
+import BaseRequest from '../../services/requests/Base';
+import { BASE_URL } from '../../constants/routes';
 
 const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
-    const [activeTab, setActiveTab] = useState("1")
+    const [activeTab, setActiveTab] = useState("Day 1")
+    const id = localStorage.getItem("userId")
+
+    const { token, userId } = useContext(OnboardingContext);
+
+    const tokenNew = () => {
+        return token || localStorage.getItem("token")
+      }
+
+    const [allWorkouts, setAllWorkouts] = useState([])
+
+    const getAllWorkouts = async() =>{
+        
+        try {
+            const {data} = await BaseRequest.postAuthenticated(`${BASE_URL}/workouts/generate-plan`, { userId: id || userId }, {
+              headers: {
+                'Authorization': `${tokenNew()}`,
+                'Content-Type': 'application/json',
+              },
+            })
+
+            setAllWorkouts(data.fiveDayPlan)
+      
+          } catch (err) {
+            console.log(err)
+          }
+
+         
+    }
+
+    useEffect(()=>{
+
+        getAllWorkouts()
+
+    }, [])
 
     const { userName } = useContext(OnboardingContext);
 
@@ -175,7 +211,7 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
                 </article>
                 <article>
                 </article>
-                {daysWorkouts.map((item) => {
+                {allWorkouts.map((item) => {
                     return <Workouts setCurrentSelectedWorkout={setCurrentSelectedWorkout} item={item} activeTab={activeTab} setActiveTab={setActiveTab} />
 
                 })}

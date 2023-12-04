@@ -4,7 +4,7 @@ import Modal from '../Modal/Modal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 
-const WorkoutModal = ({ isModalOpen, setIsModalOpen, currentSelectedWorkout }) => {
+const WorkoutModal = ({ isModalOpen, setIsModalOpen, currentSelectedWorkout, setCurrentSelectedWorkout }) => {
 
   if(!currentSelectedWorkout) return null;
 
@@ -13,7 +13,10 @@ const WorkoutModal = ({ isModalOpen, setIsModalOpen, currentSelectedWorkout }) =
     <Modal isOpen={isModalOpen}>
       <div className="d-flex align-items-center justify-content-between">
         <h2>{title}</h2>
-        <FontAwesomeIcon onClick={() => { setIsModalOpen(false) }} className="cursor-pointer" icon={faCircleXmark} />
+        <FontAwesomeIcon onClick={() => { 
+          setIsModalOpen(false);
+          setCurrentSelectedWorkout(null)
+           }} className="cursor-pointer" icon={faCircleXmark} />
       </div>
 
       <p className="card-text">

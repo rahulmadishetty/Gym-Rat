@@ -1,16 +1,15 @@
 import React from 'react';
 
 const Workouts = ({ item, activeTab, setActiveTab, setCurrentSelectedWorkout }) => {
-    const isItemVisible = activeTab === item.id ? 'toggle show' : '';
+    const isItemVisible = activeTab === item.day ? 'toggle show' : '';
 
     const handleOnTabClick = () => {
-        setActiveTab(item.id);
+        setActiveTab(item.day);
     };
 
     const onHandleCardClick = (item) =>{
 
         setCurrentSelectedWorkout(item)
-
     }
 
     return (
@@ -26,7 +25,7 @@ const Workouts = ({ item, activeTab, setActiveTab, setCurrentSelectedWorkout }) 
                                 aria-expanded={activeTab === item.id}
                                 aria-controls={`collapse${item.id}`}
                             >
-                                {item.name}
+                                {item.day}
                             </button>
                         </h5>
                     </div>
@@ -52,7 +51,7 @@ const Workouts = ({ item, activeTab, setActiveTab, setCurrentSelectedWorkout }) 
                                     </div>)
                                 })}
                             </div>
-                            <button className="">Start Workout</button>
+                            {/* <button className="">Start Workout</button> */}
                         </div>
                     </div>
                 </div>
