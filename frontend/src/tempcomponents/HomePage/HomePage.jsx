@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import Workouts from './Workouts'
+import { OnboardingContext } from '../../context/Onboarding';
 
 const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
     const [activeTab, setActiveTab] = useState("1")
+
+    const { userName } = useContext(OnboardingContext);
+
+    const name = localStorage.getItem("userName")
 
     const daysWorkouts = [
         {
@@ -165,7 +170,7 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
         <>
             <section className='home'>
                 <article>
-                    <h3 className='p-3 my-3 mx-3'>Hello <span className='color-primary fw-bold'>Ann</span>,
+                    <h3 className='p-3 my-3 mx-3'>Hello <span className='color-primary fw-bold'>{userName || name}</span>,
                         these workouts are personalized, just for you! </h3>
                 </article>
                 <article>
