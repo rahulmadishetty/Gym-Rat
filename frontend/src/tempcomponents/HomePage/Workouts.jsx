@@ -7,9 +7,9 @@ const Workouts = ({ item, activeTab, setActiveTab, setCurrentSelectedWorkout }) 
         setActiveTab(item.day);
     };
 
-    const onHandleCardClick = (item) =>{
+    const onHandleCardClick = (item, day) =>{
 
-        setCurrentSelectedWorkout(item)
+        setCurrentSelectedWorkout({...item, day})
     }
 
     return (
@@ -38,7 +38,7 @@ const Workouts = ({ item, activeTab, setActiveTab, setCurrentSelectedWorkout }) 
                         <div className={`card-body fade ${isItemVisible}`}>
                             <div className="d-flex">
                                 {item.workouts.map((workout) => {
-                                    return (<div onClick={()=> onHandleCardClick(workout)} className={`card glassy-card ${workout.completed == "true" ? "completed-workout" : ""}  cursor-pointer mb-3 mx-3`}>
+                                    return (<div onClick={()=> onHandleCardClick(workout, item.day)} className={`card glassy-card ${workout.completed? "completed-workout" : ""}  cursor-pointer mb-3 mx-3`}>
                                         <div className="card-body workout">
                                             <h5 className="card-title fw-bold mb-3">{workout.title}</h5>
                                             <p className="card-text">
