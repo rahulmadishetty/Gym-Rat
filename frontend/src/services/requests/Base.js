@@ -28,6 +28,10 @@ class BaseRequest {
     return axios.post(url, data, DEFAULT_HEADERS)
   }
 
+  static getAuthenticated(url){
+    return axios.get(url, DEFAULT_HEADERS)
+  }
+
   static patch(url, data, response) {
     return axios.patch(url, data, response);
   }
