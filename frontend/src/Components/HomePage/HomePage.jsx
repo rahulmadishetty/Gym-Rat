@@ -178,4 +178,4 @@ const HomePage = ({ setCurrentSelectedWorkout, isLoading }) => {
     )
 }
 
-export default HomePage
+export default HomePage;
