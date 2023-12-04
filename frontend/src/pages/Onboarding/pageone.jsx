@@ -28,6 +28,7 @@ const PageOne = ({ onButtonClick}) => {
               type="text"
               name="full-name"
               id="full-name"
+              data-id="full-name"
               size="30"
               onChange={(e)=> {handleOnChange("fName", e.target.value)}}
               placeholder="Enter Username"
@@ -50,6 +51,7 @@ const PageOne = ({ onButtonClick}) => {
               className="f6 br2 ph3 pv2 mb2 dib black w-100"
               type="text"
               name="display-name"
+              data-id="display-name"
               onChange={(e)=> {handleOnChange("dName", e.target.value)}}
               id="display-name"
               placeholder="Enter Display Name"
@@ -71,7 +73,11 @@ const PageOne = ({ onButtonClick}) => {
             }}
             type="submit"
             value="Create Workspace"
-            onClick={() => onButtonClick("pagetwo")}
+            data-id="create-workspace"
+            onClick={(e) => { 
+              e.preventDefault()
+              onButtonClick("pagetwo");
+            }}
           />
         </div>
       </form>

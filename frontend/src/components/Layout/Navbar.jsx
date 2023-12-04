@@ -22,7 +22,7 @@ const Navbar = ({isSetupCompleted}) => {
                     Profile
                 </NavLink>
             </div>
-            <div className='p-2 m-3 cursor-pointer color-white' onClick={handleLogout}>
+            <div className='p-2 m-3 cursor-pointer color-white' onClick={handleLogout} data-id="logout">
                 Logout
             </div>
         </section>

@@ -60,9 +60,9 @@ const PageThree = ({ onButtonClick }) => {
         </div>
 
         <div className="mw5 mx-2 my-3 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
-          
-          // onClick={() => onButtonClick("pagefour")}
+          data-id="goal"
           onClick={(e)=> {
+            e.preventDefault();
             handleOnChange("goal", "gainmuscle");     
             onButtonClick("pagefour")
           }}
