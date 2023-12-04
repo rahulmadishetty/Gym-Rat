@@ -9,7 +9,7 @@ const FivePage = () => {
   const navigate = useNavigate();
   const handleSubmit =(formData) =>{
     try{
-      BaseRequest.post(`${BASE_URL}/profile/create`, formData);
+      BaseRequest.postAuthenticated(`${BASE_URL}/profile/create`, formData);
       navigate(HOME.INDEX);
     }
     catch{

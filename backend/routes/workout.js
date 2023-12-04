@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const workoutsController = require('../controllers/workoutsController');
 
+
 // Create a new workout
 router.post('/generate-plan', workoutsController.generateWorkoutPlan);
 
