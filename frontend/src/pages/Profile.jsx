@@ -7,6 +7,8 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 import BaseRequest from "../services/requests/Base";
+import { useNavigate } from 'react-router-dom';
+import { HOME } from '../constants/routes';
 
 const getAge = (age) => {
     if (age == "below30") {
@@ -35,6 +37,7 @@ const getBodyType = (goal) => {
 }
 
 const Profile = () => {
+    const navigate = useNavigate();
     const [userData, setUserData] = useState({
         fName: '',
         dName: "",
@@ -49,6 +52,10 @@ const Profile = () => {
     const handleToggleButtons = () => {
         setButtonsVisible(!buttonsVisible); // Toggles the visibility state
     };
+
+    const handleSave = () => {
+        navigate(HOME.INDEX);
+    }
 
     const userId = localStorage.getItem("userId");
 
@@ -87,7 +94,7 @@ const Profile = () => {
                         <Form className="form mt-5">
                             <div className='d-flex justify-content-between align-items-center mb-5'>
                                 <h3 className='color-secondary'>User Profile</h3>
-                                <Button style={{backgroundColor:"#69A2B0"}} onClick={handleToggleButtons}>
+                                <Button style={{backgroundColor:"#69A2B0"}} hidden={buttonsVisible} onClick={handleToggleButtons}>
                                     <FontAwesomeIcon icon={faPenToSquare} /> Edit Profile
                                 </Button>
 
@@ -140,8 +147,8 @@ const Profile = () => {
                                     <option value="3">Endomorph</option>
                                 </Form.Select>
                             </Form.Group>
-                            <Button style={{marginTop:"30px", marginLeft:"70px", backgroundColor:"#69A2B0"}} hidden={!buttonsVisible}>Save</Button>
-                            <Button style={{marginTop:"30px", marginLeft:"110px", backgroundColor:"#69A2B0"}} hidden={!buttonsVisible}>Cancel</Button>
+                            <Button style={{marginTop:"30px", marginLeft:"70px", backgroundColor:"#69A2B0"}} hidden={!buttonsVisible} onClick={handleSave}>Save</Button>
+                            <Button style={{marginTop:"30px", marginLeft:"110px", backgroundColor:"#69A2B0"}} hidden={!buttonsVisible} onClick={handleToggleButtons}>Cancel</Button>
                             <br></br>
                         </Form>
                     </Col>
