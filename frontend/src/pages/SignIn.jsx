@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Card from '../components/Card'
-import SignInform from '../components/SignIn/SignInForm'
+import Card from '../tempcomponents/Card'
+import SignInform from '../tempcomponents/SignIn/SignInForm'
 
 const SignIn = () => {
   return (

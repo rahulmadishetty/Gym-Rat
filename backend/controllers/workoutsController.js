@@ -3,46 +3,71 @@ const { getDb } = require('../config/database')
 const { ObjectId } = require('mongodb');
 const { json } = require('body-parser');
 
+
 // Generate a 5-day workout plan
 exports.generateWorkoutPlan = async (req, res) => {
   try {
-    const { userId, goal, age, bodyType } = req.body;
+    const { userId } = req.body;
     const id = '656c2996fd1b1227cf935ca0';
     const db = getDb();
-    // Fetch the workout document
-    const workoutDocument = await db.collection("workouts").findOne({ _id: new ObjectId(id) });
-   //console.log(req.body);
+    const getUserProfile = await db.collection("user_profile").findOne({ userId: userId });
+    const getExistingWorkoutPlan = await db.collection("user_workouts").findOne({ userId: userId });
 
-    // Log the fetched workout document and its workouts
-  //  console.log('Workout Document:', workoutDocument);
-
-    if (!workoutDocument || !Array.isArray(workoutDocument.exercises)) {
-      return res.status(404).json({ error: 'Workout plan not found or has an invalid structure' });
-    }
-
+    if (!getExistingWorkoutPlan) {
+      const workoutDocument = await db.collection("workouts").findOne({ _id: new ObjectId(id) });
+      const reqObj ={
+      goal : getUserProfile.goal,
+      age : getUserProfile.age,
+      bodyType : getUserProfile.bodyType
+     }
+      if (!workoutDocument || !Array.isArray(workoutDocument.exercises)) {
+        return res.status(404).json({ error: 'Workout plan not found or has an invalid structure' });
+      }
+    
     const allExercises = workoutDocument.exercises;
-
-
-    let fiveDayPlan = [];
+  
+  
+      let fiveDayPlan = [];
     const muscleGroups = ['Chest', 'Back', 'Legs', 'Shoulders', 'Arms'];
 
     muscleGroups.forEach((group, index) => {
       const exercisesForGroup = allExercises.filter(exercise => exercise.target === group);
-      let numExercises = determineExerciseCount(goal, age, bodyType);
-
+      let numExercises = determineExerciseCount(reqObj.goal, reqObj.age, reqObj.bodyType);
+    
+      // Initialize the day plan with an empty workouts array
+      fiveDayPlan.push({
+        day: `Day ${index + 1}`,
+        muscleGroup: group,
+        workouts: []
+      });
+    
       for (let i = 0; i < numExercises; i++) {
         if (exercisesForGroup.length > i) {
           const selectedExercise = exercisesForGroup[i];
-          fiveDayPlan.push({
-            day: `Day ${index + 1}`,
-            muscleGroup: group,
-            exercise: selectedExercise
+          // Correctly access the workouts array of the specific day's plan
+          console.log(selectedExercise);
+          fiveDayPlan[index].workouts.push({
+            title: selectedExercise.title,
+            reps: selectedExercise.reps,
+            image: selectedExercise.image,
+            duration: selectedExercise.duration,
+            completed: false,
+            target: selectedExercise.target,
+            video: selectedExercise.video,
+            exerciseId: selectedExercise.exerciseId
           });
         }
       }
     });
+      await db.collection("user_workouts").insertOne({ userId, fiveDayPlan })
+  
+      const generatedWorkouts = await db.collection("user_workouts").findOne({ userId: userId });
+      res.status(200).json(generatedWorkouts);
+    } else {
+      res.status(200).json(getExistingWorkoutPlan);
+    }
 
-    res.status(200).json(fiveDayPlan);
+
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Failed to generate workout plan' });
@@ -53,49 +78,98 @@ exports.generateWorkoutPlan = async (req, res) => {
 
 function determineExerciseCount(goal, age, bodyType) {
   // Convert age to an age group
-  let ageGroup;
-  if (age >= 18 && age <= 20) {
-    ageGroup = '18-20';
-  } else if (age <= 30) {
-    ageGroup = '21-30';
-  } else if (age <= 45) {
-    ageGroup = '31-45';
-  } else {
-    ageGroup = '46-70';
-  }
+  let ageGroup = age;
+  console.log(ageGroup);
+ // Base number of exercises on the goal
+ let baseExercises = goal === 'Lose Weight' ? 1 : goal === 'Gain Muscle' ? 2 : 3;
 
-  // Base number of exercises on the goal
-  let baseExercises = goal === 'Lose Weight' ? 1 : goal === 'Gain Muscle' ? 2 : 3;
+ // Modify based on age group and body type
+ switch (ageGroup) {
+   case 'below30':
+     // Younger individuals may have more capacity for intense workouts
+     baseExercises += bodyType === 'Ectomorph' ? 1 : bodyType === 'Mesomorph' ? 2 : 0;
+     break;
+   case 'below40':
+     // Still in a good age range for physical activity, adjust based on body type
+     baseExercises += bodyType === 'Mesomorph' ? 1 : bodyType === 'Endomorph' ? -1 : 0;
+     break;
+   case 'below50':
+     // Consider reducing intensity for endomorphs, maintain for others
+     baseExercises += bodyType === 'Endomorph' ? -1 : 0;
+     break;
+   case '50+':
+     // Reduce intensity for older age group
+     baseExercises = Math.max(1, baseExercises - 1);
+     break;
+ }
 
-  // Modify based on age group and body type
-  switch (ageGroup) {
-    case '18-20':
-      baseExercises += bodyType === 'Ectomorph' ? 1 : 0;
-      break;
-    case '21-30':
-      // In the prime age for physical activity, we can add more intensity
-      baseExercises += bodyType === 'Mesomorph' ? 1 : 0;
-      break;
-    case '31-45':
-      // Consider a moderate increase for Mesomorphs
-      baseExercises += bodyType === 'Mesomorph' ? 1 : 0;
-      break;
-    case '46-70':
-      // Reduce intensity for older age group
-      baseExercises = Math.max(1, baseExercises - 1);
-      break;
-  }
-
-  return baseExercises;
+ return baseExercises;
 }
 
 
-// Get all workouts
-exports.getAllWorkouts = async (req, res) => {
+// Get all workouts as per specific user
+exports.getUserWorkouts = async (req, res) => {
   try {
-    const workouts = await Workout.find();
-    res.status(200).json(workouts);
+    const { userId } = req.params;
+    const db = getDb()
+    // Check if the user already exists
+    console.log(userId);
+    const userExists = await db.collection("user_workouts").findOne({ userId: userId });
+
+    if (!userExists) {
+      return res.status(400).json({ error: 'User Does not exist' });
+    } else {
+      res.status(200).json({ userExists });
+  }
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch workouts' });
+    res.status(500).json({ error });
+  }
+};
+
+//update completion status of the workouts for each user 
+exports.updateUserWorkouts = async (req, res) => {
+  try {
+      const { userId, exerciseId, day, completionflag } = req.body;
+      const db = getDb()
+      const userExists = await db.collection("user_workouts").findOne({ userId });
+      
+      if (!userExists) {
+          return res.status(400).json({ error: 'Details not exist' });
+      }
+      const dayIndex = userExists.fiveDayPlan.findIndex(dayPlan =>
+        dayPlan.workouts.some(workout => workout.exerciseId == exerciseId)
+      );
+
+    if (dayIndex === -1) {
+      return res.status(400).json({ error: 'Day not found in user plan' });
+    }
+
+    const user_workouts =  await db.collection("user_workouts").findOne({userId})
+    const updatedWorkouts = user_workouts.fiveDayPlan[dayIndex].workouts.map(e => {
+      if(e.exerciseId == exerciseId){
+        e.completed = completionflag
+      }
+      return e
+    })
+    console.log(user_workouts, 'hit')
+   
+
+    // Now, update the completed status of the exercise for that day
+    const updateResult = await db.collection("user_workouts").updateOne(
+      { userId: userId },
+      { $set: { [`fiveDayPlan.${dayIndex}.workouts`]: updatedWorkouts } }
+  );
+
+    // console.log(dayIndex, updateField, updateResult,   'hit');
+
+    if (updateResult.matchedCount === 0) {
+      return res.status(400).json({ error: 'Exercise not found for the user on the specified day' });
+    }
+
+
+    res.status(200).json("Exercise completion status updated successfully!");
+  } catch (error) {
+    console.error('Error updating exercise completion status:', error);
+    res.status(500).json({ error: 'An error occurred while updating the exercise status' });
   }
 };

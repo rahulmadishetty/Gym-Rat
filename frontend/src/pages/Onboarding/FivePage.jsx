@@ -1,16 +1,14 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import tick from "./tick.png";
-import BaseRequest from '../../services/requests/Base';
-import { HOME } from '../../constants/routes';
 
-const PageFive = () => {
+
+const FivePage = () => {
 
   const navigate = useNavigate();
-  const handleSubmit =(formData) =>{
+  const handleSubmit =() =>{
     try{
-      BaseRequest.post("http://localhost:3000/auth/onboarding", formData);
-      navigate(HOME.INDEX);
+      navigate("/initializing");
     }
     catch{
       console.log(err)
@@ -45,4 +43,4 @@ const PageFive = () => {
   </>)
 }
 
-export default PageFive
+export default FivePage

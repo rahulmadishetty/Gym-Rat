@@ -22,4 +22,6 @@ const MY_WORKOUTS = {
     INDEX : "/workout"
 }
 
-export { HOME, SIGN_UP, SIGN_IN, PROFILE, ONBOARDING, MY_WORKOUTS };
+const BASE_URL ="https://gym-rat-server.onrender.com"
+
+export { HOME, SIGN_UP, SIGN_IN, PROFILE, ONBOARDING, MY_WORKOUTS, BASE_URL };

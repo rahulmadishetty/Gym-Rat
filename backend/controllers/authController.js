@@ -25,7 +25,7 @@ exports.signup = async (req, res) => {
     // Generate a JWT token for the user
     const token = jwt.sign({ userId: user._id }, key, { expiresIn: '1h' });
 
-    res.status(201).json({ token, userId: user._id });
+    res.status(201).json({ token, userId: user._id, name: name });
   } catch (error) {
     res.status(500).json({ error });
   }
@@ -39,6 +39,17 @@ exports.login = async (req, res) => {
 
     // Find the user by email
     const user = await db.collection("user_signup").findOne({ email });
+    console.log(user);
+    //console.log(user.name);
+    
+
+    let name = user.email;
+    console.log(email);
+    
+
+    // checking of user Profile  
+    const profilePageCheck = (await db.collection("user_profile").findOne({ email })) !== null;
+    console.log(profilePageCheck);
 
     if (!user) {
       return res.status(401).json({ error: 'Authentication failed' });
@@ -51,7 +62,7 @@ exports.login = async (req, res) => {
       // Generate a JWT token for the user
       const key = process.env.MONGODB_SECRET_KEY;
       const token = jwt.sign({ userId: user._id }, key, { expiresIn: '1h' });
-      res.status(200).json({ token, userId: user._id, name: user.name });
+      res.status(200).json({ token, userId: user._id, name: user.name, profileCheck: profilePageCheck });
     } else {
       res.status(401).json({ error: 'Authentication failed' });
     }

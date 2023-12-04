@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 
-import Header from '../components/Layout/Header'
+import Header from '../tempcomponents/Layout/Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 import BaseRequest from "../services/requests/Base";
+
 import { useNavigate } from 'react-router-dom';
 import { HOME } from '../constants/routes';
+
+import { BASE_URL } from '../constants/routes';
+import { OnboardingContext } from '../context/Onboarding';
+
 
 const getAge = (age) => {
     if (age == "below30") {
@@ -47,6 +52,7 @@ const Profile = () => {
         bodyType: '',
     });
 
+
     const [buttonsVisible, setButtonsVisible] = useState(false);
 
     const handleToggleButtons = () => {
@@ -57,12 +63,24 @@ const Profile = () => {
         navigate(HOME.INDEX);
     }
 
+    const { token } = useContext(OnboardingContext);
+
+
     const userId = localStorage.getItem("userId");
+
+    const tokenNew = () => {
+        return token || localStorage.getItem("token")
+    }
 
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await BaseRequest.getAuthenticated(`http://localhost:3000/profile/${userId}`)
+                const response = await BaseRequest.getAuthenticated(`${BASE_URL}/profile/${userId}`, {
+                    headers: {
+                        'Authorization': `${tokenNew()}`,
+                        'Content-Type': 'application/json',
+                    }
+                })
                 const user = response.data.userProfile;
 
                 setUserData({
@@ -94,9 +112,11 @@ const Profile = () => {
                         <Form className="form mt-5">
                             <div className='d-flex justify-content-between align-items-center mb-5'>
                                 <h3 className='color-secondary'>User Profile</h3>
+
                                 <Button style={{backgroundColor:"#69A2B0"}} hidden={buttonsVisible} onClick={handleToggleButtons}>
                                     <FontAwesomeIcon icon={faPenToSquare} /> Edit Profile
                                 </Button>
+
 
                             </div>
 
