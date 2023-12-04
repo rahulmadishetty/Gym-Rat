@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import "../../App.css";
 
-import MultiStepProgressBar from './Multistepprogressbar';
 import OnePage from './OnePage';
 import TwoPage from './TwoPage';
 import ThreePage from './ThreePage';
 import FourPage from './FourPage';
 import FivePage from './FivePage';
+import ProgressbarMulti from './ProgressbarMulti';
 
 const OnboardingMain = () => {
 
@@ -41,7 +41,7 @@ const OnboardingMain = () => {
   return (<>
     <div className='App'>
       <div className='mt-5'>
-      <MultiStepProgressBar page={page} onPageNumberClick={nextPageNumber} />
+      <ProgressbarMulti page={page} onPageNumberClick={nextPageNumber} />
       {
         {
           pageone: <OnePage onButtonClick={nextpage} />,
