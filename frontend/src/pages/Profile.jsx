@@ -137,7 +137,7 @@ const Profile = () => {
                                     <Form.Control type="text" className="color-gray mb-3" defaultValue={userData.age} disabled={!buttonsVisible} />
                                 ) : (
                                     <Form.Select aria-label="Default select example">
-                                        <option>Select Age</option>
+                                        <option>{userData.age}</option>
                                         <option value="1">18-29</option>
                                         <option value="2">30-39</option>
                                         <option value="3">40-49</option>
@@ -152,7 +152,7 @@ const Profile = () => {
                                 <Form.Control type="text" className="color-gray mb-3" defaultValue={userData.goal} disabled={!buttonsVisible} />
                                 ) : (
                                 <Form.Select aria-label="Default select example">
-                                    <option>Select Goal</option>
+                                    <option>{userData.goal}</option>
                                     <option value="1">Lose weight</option>
                                     <option value="2">Gain Muscle</option>
                                     <option value="3">Get Shredded</option>
@@ -166,7 +166,7 @@ const Profile = () => {
                                 <Form.Control type="text" className="color-gray mb-3" defaultValue={userData.bodyType} disabled={!buttonsVisible} />
                                 ) : (
                                 <Form.Select aria-label="Default select example">
-                                    <option>Select Body Type</option>
+                                    <option>{userData.bodyType}</option>
                                     <option value="1">Ectomorph</option>
                                     <option value="2">Mesomorph</option>
                                     <option value="3">Endomorph</option>
