@@ -15,7 +15,7 @@ const SignUpform = () => {
 
   const navigate = useNavigate();
   const { login } = useContext(OnboardingContext)
-
+ 
   const handleSubmit = async (formData, form) => {
     setLoaderVisible(true)
     try {
@@ -32,13 +32,13 @@ const SignUpform = () => {
       form.resetFieldState('email');
       form.resetFieldState('password');
       form.resetFieldState('password_confirmation');
-
-
+ 
+ 
     } catch (err) {
       console.log(err)
     }
   };
-
+ 
   return (
     <div>
       <h2 className='m-3 color-black'> Sign Up</h2>
@@ -56,9 +56,10 @@ const SignUpform = () => {
         }}
         render={({ handleSubmit, submitting, values, form }) => (
           <form onSubmit={event => handleSubmit(event, form)} className='d-flex flex-column align-items-center'>
-            <InputField name="name" label="Name" placeholder="Name*" validate={required} type="text" />
-            <InputField name="email" label="Email" placeholder="Email*" validate={composeValidators(required, validateEmail)} type="text" />
+            <InputField dataId="name" name="name" label="Name" placeholder="Name*" validate={required} type="text" />
+            <InputField dataId="email" name="email" label="Email" placeholder="Email*" validate={composeValidators(required, validateEmail)} type="text" />
             <InputField
+              dataId="password"
               name="password"
               label="Password"
               placeholder="Password*"
@@ -66,6 +67,7 @@ const SignUpform = () => {
               type="password"
             />
             <InputField
+              dataId="confirmation"
               name="password_confirmation"
               label="Password Confirmation"
               placeholder="Password Confirmation*"
@@ -96,5 +98,5 @@ const SignUpform = () => {
     </div>
   );
 };
-
+ 
 export default SignUpform;

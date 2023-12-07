@@ -74,9 +74,10 @@ const FourPage = ({ onButtonClick }) => {
           style={{ width: "100%", height: "310px" }}
         >
           <div className="mw5 mx-2 my-2 bg-white br3 pa3 mv3 ba dib b--black-10 ma3 clicked card"
-
-            // onClick={() => onButtonClick("pagefive")}
+            data-id="body-type"
+            
             onClick={(e) => {
+              e.preventDefault();
               handleOnChange("bodyType", "ectomorph");
               handleOnSubmit()
               onButtonClick("pagefive")

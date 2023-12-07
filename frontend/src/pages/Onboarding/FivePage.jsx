@@ -38,6 +38,7 @@ const FivePage = () => {
         type="submit"
         value="Home Page"
         onClick={handleSubmit}
+        data-id="submit-data"
       />
     </div>
   </>)

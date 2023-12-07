@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'react-final-form';
-
-const InputField = ({ name, placeholder, validate, type }) => {
+ 
+const InputField = ({ name, placeholder, validate, type, dataId }) => {
     return (
         <>
             <Field name={name} validate={validate}>
@@ -12,6 +12,7 @@ const InputField = ({ name, placeholder, validate, type }) => {
                             type={type}
                             placeholder={placeholder}
                             className='p-2 '
+                            data-id={dataId}
                         />
                         {meta.error && meta.touched && <span className='error text-start'>{meta.error}</span>}
                     </div>
@@ -20,5 +21,5 @@ const InputField = ({ name, placeholder, validate, type }) => {
         </>
     );
 };
-
+ 
 export default InputField;
